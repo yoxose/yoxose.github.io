@@ -178,7 +178,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-12 00:08:10" itemprop="dateModified" datetime="2022-10-12T00:08:10+08:00">2022-10-12</time>
+                <time title="修改时间：2022-10-12 00:09:48" itemprop="dateModified" datetime="2022-10-12T00:09:48+08:00">2022-10-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,7 +207,7 @@
       
           <p>After we assemble the cycle of chloroplast genome, we can use PGA and Geneious to annotate them before uploading to GeneBank.</p>
 <h3 id="PGA-annotation"><a href="#PGA-annotation" class="headerlink" title="PGA annotation"></a>PGA annotation</h3><p><em>“PGA (Plastid Genome Annotator), a standalone command line tool, can perform rapid, accurate, and flexible batch annotation of newly generated target plastomes based on well-annotated reference plastomes.”</em> This is the introduction to PGA of its <a target="_blank" rel="noopener" href="https://github.com/quxiaojian/PGA">web</a>. </p>
-<pre><code>#安装perl
+<pre><code>#install perl
 wget https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
 tar -xzf perl-5.36.0.tar.gz
 cd perl-5.36.0
@@ -216,18 +216,18 @@ make
 make test
 make install
 
-#安装BLAST 
+#intall BLAST 
 wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.13.0+-x64-linux.tar.gz
 tar -xzf ncbi-blast-2.13.0+-x64-linux.tar.gz
 
-#加入环境变量
+#add PATH
 vim ~/.bashrc
 export PATH=/home/ZYH/Desktop/wwj/PGA/#####blast的文件夹名称/bin:$PATH
 source ~/.bashrc
 
 blastn -version
 
-#下载PGA
+#download PGA
 git clone https://github.com/quxiaojian/PGA.git
 vim ~/.bashrc
 export PATH=/home/xxx/PGA:$PATH
