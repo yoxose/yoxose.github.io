@@ -147,6 +147,388 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/26/Check-data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/26/Check-data/" class="post-title-link" itemprop="url">Check data</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-26 14:57:40 / 修改时间：15:13:40" itemprop="dateCreated datePublished" datetime="2022-10-26T14:57:40+08:00">2022-10-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Before our analysis, we could check our raw data by Coefficient of Variation (CV) to make sure if it is true or input error.</p>
+<pre><code>#read_data----
+library(readxl)
+setwd(&quot;C:/XX/XX/XX&quot;)
+data &lt;- read_excel(&quot;C:/XX/XX/XX.xlsx&quot;)
+cal_cv=function(x)&#123;
+  y=na.omit(x)
+  return(sd(y)/mean(y))
+&#125;
+
+data &lt;- as.data.frame(data)
+data[,1] &lt;- as.character(data[,1])
+
+#pollen_CV----
+data2 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$pollen
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data2[i,1] &lt;- a
+  data2[i,2] &lt;- j
+  data2[i,3] &lt;- cal_cv(x)
+  data2[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+&#125;
+
+#tubeL_CV----
+data3 &lt;- data.frame()
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$tubeL
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data3[i,1] &lt;- a
+  data3[i,2] &lt;- j
+  data3[i,3] &lt;- cal_cv(x)
+  data3[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+&#125; 
+
+#tubeW_CV----
+data4 &lt;- data.frame()
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$tubeW
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data4[i,1] &lt;- a
+  data4[i,2] &lt;- j
+  data4[i,3] &lt;- cal_cv(x)
+  data4[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20 
+&#125; 
+
+#styleL_CV----
+data5 &lt;- data.frame()
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$styleL
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data5[i,1] &lt;- a
+  data5[i,2] &lt;- j
+  data5[i,3] &lt;- cal_cv(x)
+  data5[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+&#125;
+#because tube length should shorter than style length
+i &lt;- 1
+a &lt;- as.numeric(data$tubeL)
+b &lt;- as.numeric(data$styleL)
+c &lt;- data.frame()
+for (i in 1:1120) &#123;
+  if(is.na(a[i]))&#123;
+    c[i,1] &lt;- &quot;aNA&quot;
+    &#125;else&#123;
+      if(is.na(b[i]))&#123;
+        c[i,1] &lt;- &quot;bNA&quot;
+      &#125;else&#123;
+       if(a[i] - b[i]/1000 &lt; 0)&#123;
+           c[i,1] &lt;- &quot;true&quot;
+         &#125;else&#123;
+           c[i,1] &lt;- &quot;false&quot;
+        &#125;
+      &#125;
+    &#125;
+&#125;
+#styleW_CV----
+data6 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$styleW
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data6[i,1] &lt;- a
+  data6[i,2] &lt;- j
+  data6[i,3] &lt;- cal_cv(x)
+  data6[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+
+&#125;
+
+#depth----
+data7 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$depth
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data7[i,1] &lt;- a
+  data7[i,2] &lt;- j
+  data7[i,3] &lt;- cal_cv(x)
+  data7[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#wide----
+data8 &lt;- data.frame()
+    
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+      print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$wide
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data8[i,1] &lt;- a
+  data8[i,2] &lt;- j
+  data8[i,3] &lt;- cal_cv(x)
+  data8[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#antherV----
+data9 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$antherV
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data9[i,1] &lt;- a
+  data9[i,2] &lt;- j
+  data9[i,3] &lt;- cal_cv(x)
+  data9[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#ovuleN----
+data10 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$ovulenumber
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data10[i,1] &lt;- a
+  data10[i,2] &lt;- j
+  data10[i,3] &lt;- cal_cv(x)
+  data10[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#ovuleV----
+data11 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$ovulesize
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data11[i,1] &lt;- a
+  data11[i,2] &lt;- j
+  data11[i,3] &lt;- cal_cv(x)
+  data11[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#ovaryL----
+data12 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$ovaryL
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data12[i,1] &lt;- a
+  data12[i,2] &lt;- j
+  data12[i,3] &lt;- cal_cv(x)
+  data12[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#cycle----
+data13 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$cycle
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data13[i,1] &lt;- a
+  data13[i,2] &lt;- j
+  data13[i,3] &lt;- cal_cv(x)
+  data13[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+
+#P/E----
+data14 &lt;- data.frame()
+
+i &lt;- 1
+j &lt;- 1
+for (i in 1:56) &#123;
+  a &lt;- as.character(data[j,1])
+  print(a)
+  print(j)
+  b &lt;- subset(data,data$名称==a)
+  c &lt;- b$`P/E`
+  x &lt;- as.numeric(c)
+  print(cal_cv(x))
+  print(i)
+  data14[i,1] &lt;- a
+  data14[i,2] &lt;- j
+  data14[i,3] &lt;- cal_cv(x)
+  data14[i,4] &lt;- mean(x,na.rm = T)
+  j &lt;- j+20
+  
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/21/correlationship-between-pollen-number-and-anther-volume/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1004,7 +1386,7 @@ end;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1015,7 +1397,7 @@ end;
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
