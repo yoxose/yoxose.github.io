@@ -147,6 +147,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/31/Edit-tree-by-R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/31/Edit-tree-by-R/" class="post-title-link" itemprop="url">Edit_tree_by_R</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-31 10:02:46 / 修改时间：10:07:45" itemprop="dateCreated datePublished" datetime="2022-10-31T10:02:46+08:00">2022-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>library(ape)
+setwd(&quot;C:/Users/yoxose/Desktop/pedicualris_2022/pedicularis-2022-09/code&quot;)
+Timetree &lt;- read.nexus(&quot;pedtimetree.nex&quot;)
+plot(Timetree)
+nodelabels()
+tiplabels()
+
+
+
+Timetree &lt;- drop.tip(Timetree, 57:62)
+tip &lt;- c(&#39;P_densispica&#39;,&#39;P_rhynchodonta&#39;,&#39;P_rupicola&#39;,&#39;P_stenocorys&#39;,
+         &#39;P_glabrescens&#39;,&#39;P_microchila&#39;,&#39;P_decora&#39;,&#39;P_rex&#39;,&#39;P_kansuensis&#39;,
+         &#39;P_lutescens&#39;,&#39;P_thamnophila&#39;,&#39;P_lyrata&#39;,&#39;P_roylei&#39;,&#39;P_szetschuanica&#39;,
+         &#39;P_nigra&#39;,&#39;P_comptoniaefolia&#39;,&#39;P_tenuisecta&#39;)
+Timetree$tip.label
+
+
+
+Timetree.YH &lt;- drop.tip(Timetree, tip)
+plot(Timetree.YH)
+#write.nexus(Timetree.YH,file = &quot;Timetree_YH.nex&quot;)
+
+
+
+Timetree.WH &lt;- keep.tip(Timetree, tip)
+plot(Timetree.WH)
+#write.nexus(Timetree.WH,file = &quot;Timetree_WH.nex&quot;)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/26/Check-data/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1386,7 +1485,7 @@ end;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1397,7 +1496,7 @@ end;
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
