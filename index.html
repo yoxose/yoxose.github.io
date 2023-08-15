@@ -147,6 +147,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/15/Text-processing-by-Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/15/Text-processing-by-Python/" class="post-title-link" itemprop="url">Text processing by Python</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-15 17:34:33 / 修改时间：17:37:49" itemprop="dateCreated datePublished" datetime="2023-08-15T17:34:33+08:00">2023-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>#将文件夹及子文件生成目录树<br>    import sys<br>    from pathlib import Path</p>
+<pre><code>tree_str = &#39;&#39;
+
+def generate_tree(pathname, n=0):
+    global tree_str
+    if pathname.is_file():
+        tree_str += &#39; |&#39; * n + &#39;-&#39; * 4 + pathname.name + &#39;\n&#39;
+    elif pathname.is_dir():
+        tree_str += &#39; |&#39; * n + &#39;-&#39; * 4 + \
+            str(pathname.relative_to(pathname.parent)) + &#39;\\&#39; + &#39;\n&#39;
+        for cp in pathname.iterdir():
+            generate_tree(cp, n+1)
+
+def save_file(tree, filename=&#39;tree.txt&#39;):
+    with open(filename, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        f.write(tree)
+
+if __name__ == &#39;__main__&#39;:
+        # 命令参数个数为2并且目录存在存在
+    if len(sys.argv) == 2 and Path(sys.argv[1]).exists():
+        generate_tree(Path(sys.argv[1]), 0)
+    # 命令参数个数为3并且目录存在存在
+    if len(sys.argv) == 3 and Path(sys.argv[1]).exists():
+        generate_tree(Path(sys.argv[1]), 0)
+        save_file(tree_str, sys.argv[2])
+    else:  # 当前路径
+        generate_tree(Path.cwd(), 0)
+    print(tree_str)
+</code></pre>
+<p>#调用命令<br>python dirtree.py X:\xxx\xxxx\xxxxx dirtree.txt</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/11/Text-processing-by-R/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1287,104 +1384,6 @@ ggplotRegression(lm)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/19/count-circular-genome-ratio/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoxose">
-      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YOXOSE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/19/count-circular-genome-ratio/" class="post-title-link" itemprop="url">count circular genome ratio</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-19 11:04:29" itemprop="dateCreated datePublished" datetime="2022-10-19T11:04:29+08:00">2022-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-21 12:30:17" itemprop="dateModified" datetime="2022-10-21T12:30:17+08:00">2022-10-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>A script for count circular genome ratio efficiently:</p>
-<pre><code>echo $(ls) &gt; flist.txt #to confrim the length of loop according to the numbers of folders
-
-list=$(cat flist.txt) #read the list and assign a variable for loop
-
-#a loop for getting the final result from the logfile
-for i in $list;do
-cd $&#123;i&#125;;
-cd results;
-a=$(sudo cat get_org.log.txt |grep -o &quot;Result status of embplant_pt.*&quot;);
-b=$&#123;i&#125;;
-cd ..;
-cd ..;
-echo $b &gt;&gt; GOR.txt;
-echo $a &gt;&gt; GOR.txt;
-done
-
-grep -o &#39;S18&#39; GOR.txt |wc -l #to count the sum of input sequences
-
-grep -o &#39;circular genome&#39; GOR.txt |wc -l #to count the sum of circular genome
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1454,7 +1453,7 @@ grep -o &#39;circular genome&#39; GOR.txt |wc -l #to count the sum of circular g
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1465,7 +1464,7 @@ grep -o &#39;circular genome&#39; GOR.txt |wc -l #to count the sum of circular g
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
