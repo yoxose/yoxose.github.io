@@ -147,6 +147,129 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/10/Python-edit-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/10/Python-edit-tree/" class="post-title-link" itemprop="url">Python edit tree</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-10 00:44:34 / 修改时间：00:46:53" itemprop="dateCreated datePublished" datetime="2023-09-10T00:44:34+08:00">2023-09-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>##改名</p>
+<pre><code>import re
+#读入文件A
+with open(&#39;C:\\Users\\yoxose\\Desktop\\testA.txt&#39;, &#39;r&#39;) as file:
+    file_A = file.read()
+print(file_A)
+#读入文件B
+with open(&#39;C:\\Users\\yoxose\\Desktop\\testB.txt&#39;, &#39;r&#39;) as file:
+    file_B = file.read()
+print(file_B)
+
+#选择文件中特定的字符串
+pattern = r&#39;Homo_(.*?):&#39;
+matches = re.findall(pattern, file_A)
+print(matches)
+pattern1 = r&#39;Homo_(.*?)_&#39;
+matches1 = re.findall(pattern1, file_B)
+print(matches1)
+
+
+#将要编辑的文件A的内容赋值给定义的变量
+file_content = file_A
+
+#通过循环寻找A、B文件中特定字符串相同的长字符串，将A中的长字符串替换为B中的相应字符串
+for match in matches:
+    extracted_text = match.strip()
+    print(extracted_text)
+    for match1 in matches1:
+        extracted_text1 = match1.strip()
+        print(extracted_text1)
+        if extracted_text == extracted_text1:
+            #提取B中的相应长字符串赋值给y
+            with open(&#39;C:\\Users\\yoxose\\Desktop\\testB.txt&#39;, &#39;r&#39;) as file_b:
+                lines_b = file_b.readlines()
+            for line in lines_b:
+                if extracted_text1 in line:
+                    y = line.strip()
+                    print(y)
+                    break  # 找到匹配后停止循环
+            #print(&quot;Match found:&quot;)
+            #print(extracted_text)
+            print(&#39;yes&#39;)
+            #替换A中的长字符串为B中的长字符串
+            modified_contents = re.sub(rf&#39;&#123;re.escape(extracted_text)&#125;:&#39;, f&#39;I&#123;y&#125;:&#39;, file_content)
+            #保存本次循环结果，下次循环在本循环结果的基础上修改
+            file_content = modified_contents
+        else:
+            print(&#39;no&#39;)
+#删除特定字符I&gt;前18个字符
+result_str = re.sub(r&#39;.&#123;18&#125;I&gt;&#39;, &#39;I&gt;&#39;, file_content)
+#删除I&gt;
+result = result_str.replace(&#39;I&gt;&#39;, &#39;&#39;)
+#保存最后结果
+with open(&#39;a.txt&#39;, &#39;w&#39;) as file_a:
+    file_a.write(result)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/15/Text-processing-by-Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1308,187 +1431,6 @@ for (i in 1:56) &#123;
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/21/correlationship-between-pollen-number-and-anther-volume/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="yoxose">
-      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YOXOSE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/21/correlationship-between-pollen-number-and-anther-volume/" class="post-title-link" itemprop="url">correlationship between pollen number and anther volume</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-10-21 10:50:02 / 修改时间：12:36:49" itemprop="dateCreated datePublished" datetime="2022-10-21T10:50:02+08:00">2022-10-21</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <pre><code>#read data ----
-#install.packages(&quot;readxl&quot;)
-library(readxl)
-setwd(&quot;C:/Users/yoxose/Desktop/pedicualris_2022/pedicularis-2022-09/code&quot;)
-#getwd()
-data &lt;- read_excel(&quot;C:/Users/yoxose/Desktop/pedicualris_2022/pedicularis-2022-09/pedicularis_pollen_anther.xlsx&quot;,
-               sheet = 2)
-data &lt;- data[,-4]
-
-#Coefficient of Variation ----
-cal_cv=function(x)&#123;
-    y=na.omit(x)
-    return(sd(y)/mean(y))
-&#125;
-
-data2 &lt;- read_excel(&quot;C:/Users/yoxose/Desktop/pedicualris_2022/pedicularis-2022-09/pedicularis_pollen_anther.xlsx&quot;,
-                sheet = 3)
-class(data$species)
-data2 &lt;- as.data.frame(data2)
-data2[,1] &lt;- as.character(data2[,1])
-data3 &lt;- data.frame()
-
-i &lt;- 1
-j &lt;- 1
-for (i in 1:54) &#123;
-    a &lt;- as.character(data2[j,1])
-    print(a)
-    print(j)
-    b &lt;- subset(data2,data2$species==a)
-    c &lt;- b$all
-    x &lt;- as.numeric(c)
-    print(cal_cv(x))
-    print(i)
-    data3[i,1] &lt;- a
-    data3[i,2] &lt;- j
-    data3[i,3] &lt;- cal_cv(x)
-    data3[i,4] &lt;- mean(x,na.rm = T) 
-    if(as.character(data2[j+10,1])==a)&#123;j &lt;- j+11
-        &#125;else&#123;
-        j &lt;- j+10
-    &#125;
-&#125;
-#与data比较，验证data3结果是否对应正确
-plnm1 &lt;- round(data3$V4)
-plnm2 &lt;- na.omit(round(as.numeric(data$pollenN_mean)))
-class(plnm1)
-plnm1==plnm2
-
-#write.table(data3, file = &quot;pollenN_CV.csv&quot;, quote = F, sep = &quot;,&quot;)
-
-data4 &lt;- read_excel(&quot;C:/Users/yoxose/Desktop/pedicualris_2022/pedicularis-2022-09/pedicularis_pollen_anther.xlsx&quot;,
-                sheet = 4)
-
-data4 &lt;- as.data.frame(data4)
-data4[,1] &lt;- as.character(data4[,1])
-data5 &lt;- data.frame()
-
-i &lt;- 1
-j &lt;- 1
-for (i in 1:56) &#123;
-    a4 &lt;- as.character(data4[j,1])
-    print(a4)
-    print(j)
-    b4 &lt;- subset(data4,data4$species==a4)
-    c4 &lt;- b4$antherV
-    x &lt;- as.numeric(c4)
-    print(cal_cv(x))
-    print(i)
-    data5[i,1] &lt;- a4
-    data5[i,2] &lt;- j
-    data5[i,3] &lt;- cal_cv(x)
-    data5[i,4] &lt;- mean(x,na.rm = T)
-    j &lt;- j+20
-&#125;
-
-plnm3 &lt;- round(as.numeric(data5$V4),digits = 6)
-plnm4 &lt;- round(na.omit(as.numeric(data4$anther_M)),digits = 6)
-plnm3==plnm4
-
-
-#correlationship -----
-
-anV &lt;- data$antherV_mean
-plN &lt;- round(as.numeric(data$pollenN_mean), digits = 0)
-lm &lt;- lm(anV ~ plN)
-summary(lm)
-plot(lm)
-
-#plot ----
-#install.packages(&quot;ggplot2&quot;)
-library(ggplot2)
-ggplot(data, aes(x = plN, y = anV)) + 
-geom_point() +
-stat_smooth(method = &quot;lm&quot;, col = &quot;red&quot;)
-
-ggplotRegression &lt;- function (fit) &#123;
-
-     require(ggplot2)
-
-    ggplot(fit$model, aes_string(x = names(fit$model)[2], y = names(fit$model)[1])) + 
-        geom_point(colour = &quot;black&quot;,size = 3, alpha = 0.3) +
-        stat_smooth(method = &quot;lm&quot;, col = &quot;blue&quot;) +
-        labs(title = paste(&quot;Adj R2 = &quot;,signif(summary(fit)$adj.r.squared, 5),
-                   &quot;Intercept =&quot;,signif(fit$coef[[1]],5 ),
-                   &quot; Slope =&quot;,signif(fit$coef[[2]], 5),
-                   &quot; P =&quot;,signif(summary(fit)$coef[2,4], 5)))
-&#125;
-
-ggplotRegression(lm)
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1558,7 +1500,7 @@ ggplotRegression(lm)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
