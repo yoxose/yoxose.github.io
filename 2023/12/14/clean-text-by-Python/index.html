@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Sometimes, when we finish the assembly and annotation, we want to upload them to a common database as GenBank. So this is an example for how to upload a sequence to GenBank. Upload raw dataI refer to">
+  <meta name="description" content="有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例：我首先从中国植物志网站马先蒿植物（https:&#x2F;&#x2F;www.iplant.cn&#x2F;info&#x2F;Pedicularis?t&#x3D;z）这个页面，右键单击，选择检查，然后在&lt;&#x2F;&gt;元素下找到包含物种名称列表的一串代码。复制保存成txt，然后开始清洗。    import o">
 <meta property="og:type" content="article">
-<meta property="og:title" content="upload sequence to NCBI">
-<meta property="og:url" content="http://example.com/2022/10/12/upload-sequence-to-NCBI/index.html">
+<meta property="og:title" content="clean text by Python">
+<meta property="og:url" content="http://example.com/2023/12/14/clean-text-by-Python/index.html">
 <meta property="og:site_name" content="YOXOSE">
-<meta property="og:description" content="Sometimes, when we finish the assembly and annotation, we want to upload them to a common database as GenBank. So this is an example for how to upload a sequence to GenBank. Upload raw dataI refer to">
+<meta property="og:description" content="有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例：我首先从中国植物志网站马先蒿植物（https:&#x2F;&#x2F;www.iplant.cn&#x2F;info&#x2F;Pedicularis?t&#x3D;z）这个页面，右键单击，选择检查，然后在&lt;&#x2F;&gt;元素下找到包含物种名称列表的一串代码。复制保存成txt，然后开始清洗。    import o">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-12T02:35:35.000Z">
-<meta property="article:modified_time" content="2022-10-12T04:32:26.129Z">
+<meta property="article:published_time" content="2023-12-14T08:26:47.000Z">
+<meta property="article:modified_time" content="2023-12-14T08:33:41.365Z">
 <meta property="article:author" content="yoxose">
-<meta property="article:tag" content="chloroplast">
-<meta property="article:tag" content="NCBI">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/10/12/upload-sequence-to-NCBI/">
+<link rel="canonical" href="http://example.com/2023/12/14/clean-text-by-Python/">
 
 
 <script id="page-configurations">
@@ -47,7 +46,7 @@
   };
 </script>
 
-  <title>upload sequence to NCBI | YOXOSE</title>
+  <title>clean text by Python | YOXOSE</title>
   
 
 
@@ -152,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/12/upload-sequence-to-NCBI/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/14/clean-text-by-Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          upload sequence to NCBI
+          clean text by Python
         </h1>
 
         <div class="post-meta">
@@ -176,7 +175,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-10-12 10:35:35 / 修改时间：12:32:26" itemprop="dateCreated datePublished" datetime="2022-10-12T10:35:35+08:00">2022-10-12</time>
+              <time title="创建时间：2023-12-14 16:26:47 / 修改时间：16:33:41" itemprop="dateCreated datePublished" datetime="2023-12-14T16:26:47+08:00">2023-12-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -184,11 +183,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/" itemprop="url" rel="index"><span itemprop="name">example</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
                 </span>
             </span>
 
@@ -203,10 +198,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Sometimes, when we finish the assembly and annotation, we want to upload them to a common database as GenBank. So this is an example for how to upload a sequence to GenBank.</p>
-<h3 id="Upload-raw-data"><a href="#Upload-raw-data" class="headerlink" title="Upload raw data"></a>Upload raw data</h3><p>I refer to this blog: <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1806824">最新 （2021版_Windows）| 测序原始数据上传NCBI的详细过程 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<h3 id="Use-BankIt-to-submit-sequence-with-annotation"><a href="#Use-BankIt-to-submit-sequence-with-annotation" class="headerlink" title="Use BankIt to submit sequence with annotation"></a>Use BankIt to submit sequence with annotation</h3><p>I refer to this blog: <a target="_blank" rel="noopener" href="https://www.biomart.cn/experiment/430/590/597/57949.htm">如何利用BankIt向NCBI在线提交序列</a>, and use this web: <a target="_blank" rel="noopener" href="https://chlorobox.mpimp-golm.mpg.de/GenBank2Sequin.html">MPI-MP CHLOROBOX - GB2sequin (mpg.de)</a> to generate the feature table.</p>
-<p><em><strong>If there are any mistakes, Plase contact me (<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#119;&#x65;&#105;&#106;&#105;&#x61;&#54;&#57;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#109;">&#x77;&#97;&#x6e;&#x67;&#119;&#x65;&#105;&#106;&#105;&#x61;&#54;&#57;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#109;</a>). Thank you for your help to improve the quality of my article!</strong></em></p>
+        <h3 id="有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例："><a href="#有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例：" class="headerlink" title="有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例："></a>有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例：</h3><p>我首先从中国植物志网站马先蒿植物（<a target="_blank" rel="noopener" href="https://www.iplant.cn/info/Pedicularis?t=z%EF%BC%89%E8%BF%99%E4%B8%AA%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%8F%B3%E9%94%AE%E5%8D%95%E5%87%BB%EF%BC%8C%E9%80%89%E6%8B%A9%E6%A3%80%E6%9F%A5%EF%BC%8C%E7%84%B6%E5%90%8E%E5%9C%A8">https://www.iplant.cn/info/Pedicularis?t=z）这个页面，右键单击，选择检查，然后在</a>&lt;&#x2F;&gt;元素下找到包含物种名称列表的一串代码。复制保存成txt，然后开始清洗。<br>    import os<br>    import re<br>    def split_line(text, keyword):<br>        f &#x3D; open(text, “r”, encoding&#x3D;”utf-8”)<br>        content &#x3D; f.read()<br>        pattern &#x3D; re.compile(keyword)<br>        split_text &#x3D; pattern.sub(r”\n” + keyword, content)<br>        return split_text</p>
+<pre><code>text = os.path.join(&quot;F:\\Python_code\\Programs\\edit_txt\\pedicularis(1)&quot;, &quot;focname.txt&quot;)
+new_text = split_line(text, r&quot;Pedicularis&quot;)
+print(new_text)
+
+def split_line2(text, keyword):
+    pattern = re.compile(keyword)
+    split_text = pattern.sub(keyword + r&quot;\n&quot;, text)
+    return split_text
+
+new_text2 = split_line2(new_text, r&quot;马先蒿&quot;)
+print(new_text2)
+
+type(new_text2)
+lines = new_text2.splitlines()
+print(lines)
+new_lines = []
+for line in lines:
+    if &quot;Pedicularis&quot; in line or &quot;马先蒿&quot; in line:
+    pattern = re.compile(r&quot;\?t=z\&quot;&gt;&quot;)
+    line = pattern.sub(&quot;\t&quot;, line)
+    new_lines.append(line)
+    print(line)
+print(new_lines)
+type(new_lines)
+
+with open(&quot;focnameoutput.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+for line in new_lines:
+    f.write(line + &quot;\n&quot;)
+f.close()
+</code></pre>
 
     </div>
 
@@ -216,8 +238,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/chloroplast/" rel="tag"># chloroplast</a>
-              <a href="/tags/NCBI/" rel="tag"># NCBI</a>
+              <a href="/tags/python/" rel="tag"># python</a>
           </div>
 
         
@@ -226,13 +247,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/10/11/Annotation-genome/" rel="prev" title="Genome-Annotation">
-      <i class="fa fa-chevron-left"></i> Genome-Annotation
+    <a href="/2023/09/10/Use-Python-search-words/" rel="prev" title="Use Python search words">
+      <i class="fa fa-chevron-left"></i> Use Python search words
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/10/19/count-circular-genome-ratio/" rel="next" title="count circular genome ratio">
-      count circular genome ratio <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -291,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Upload-raw-data"><span class="nav-number">1.</span> <span class="nav-text">Upload raw data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-BankIt-to-submit-sequence-with-annotation"><span class="nav-number">2.</span> <span class="nav-text">Use BankIt to submit sequence with annotation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E4%BB%AC%E6%B2%A1%E5%8A%9E%E6%B3%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E5%88%97%E8%A1%A8%EF%BC%8C%E6%AF%94%E5%A6%82%E6%A4%8D%E7%89%A9%E5%90%8D%EF%BC%8C%E4%B8%BA%E6%AD%A4%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E4%B8%8B%E8%BD%BD%E5%AE%83%E7%9A%84%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%A0%81%E4%BB%8E%E4%B8%AD%E6%B8%85%E6%B4%97%E5%87%BA%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%8C%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%B8%AA%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">有时候我们没办法下载网页中显示的一些列表，比如植物名，为此我们需要下载它的网页代码从中清洗出我们需要的内容，以下是个示例：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
