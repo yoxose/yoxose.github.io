@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="可用于文章关键词、引用等方面的分析 library(networkD3) library(visNetwork) library(igraph) library(igraphdata) library(stringr) library(rpart) library(sparkline) #---- hc &lt;- hclust(dist(USArrests), &quot;ave&quot;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Network data analysis by R">
+<meta property="og:url" content="http://example.com/2023/12/28/network-data-analysis-by-R/index.html">
+<meta property="og:site_name" content="YOXOSE">
+<meta property="og:description" content="可用于文章关键词、引用等方面的分析 library(networkD3) library(visNetwork) library(igraph) library(igraphdata) library(stringr) library(rpart) library(sparkline) #---- hc &lt;- hclust(dist(USArrests), &quot;ave&quot;)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-28T07:35:37.000Z">
+<meta property="article:modified_time" content="2023-12-28T07:51:35.435Z">
+<meta property="article:author" content="yoxose">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/12/28/network-data-analysis-by-R/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Network data analysis by R | YOXOSE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YOXOSE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/28/network-data-analysis-by-R/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Network data analysis by R
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-12-28 15:35:37 / 修改时间：15:51:35" itemprop="dateCreated datePublished" datetime="2023-12-28T15:35:37+08:00">2023-12-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>可用于文章关键词、引用等方面的分析</p>
+<pre><code>library(networkD3)
+library(visNetwork)
+library(igraph)
+library(igraphdata)
+library(stringr)
+library(rpart)
+library(sparkline)
+#----
+hc &lt;- hclust(dist(USArrests), &quot;ave&quot;)
+radialNetwork(as.radialNetwork(hc))
+#----和弦图----
+hairColourData &lt;- matrix(c(1100, 1951, 8010, 1013, 5871, 10048, 16145, 
+                        990, 8916, 2060, 8090, 940, 2868, 6171, 8045, 6907), nrow = 4)
+chordNetwork(Data = hairColourData, width = 500, height = 500, 
+                    colourScale = c(&quot;#000000&quot;, &quot;#FFDD89&quot;, &quot;#957244&quot;, &quot;#F26223&quot;), 
+                    labels = c(&quot;red&quot;, &quot;brown&quot;, &quot;blond&quot;, &quot;gray&quot;))#和弦图
+#----树形图----
+hc &lt;- hclust(dist(USArrests), &quot;ave&quot;) 
+dendroNetwork(hc, height = 600) 
+dendroNetwork(hc, treeOrientation = &quot;vertical&quot;) 
+dendroNetwork(hc, height = 600, linkType = &quot;diagonal&quot;) 
+dendroNetwork(hc, treeOrientation = &quot;vertical&quot;, linkType = &quot;diagonal&quot;) 
+dendroNetwork(hc, textColour = c(&quot;red&quot;, &quot;green&quot;, &quot;orange&quot;)[cutree(hc, 3)],height = 600) 
+dendroNetwork(hc, textColour = c(&quot;red&quot;, &quot;green&quot;, &quot;orange&quot;)[cutree(hc, 3)], treeOrientation = &quot;vertical&quot;)
+
+#----递进式思维导图----
+URL &lt;- paste0(&quot;https://cdn.rawgit.com/christophergandrud/networkD3/&quot;, 
+            &quot;master/JSONdata//flare.json&quot;)
+Flare &lt;- jsonlite::fromJSON(URL, simplifyDataFrame = FALSE)
+diagonalNetwork(List = Flare, fontSize = 10, opacity = 0.9)
+hc &lt;- hclust(dist(USArrests), &quot;ave&quot;)
+diagonalNetwork(as.radialNetwork(hc))
+diagonalNetwork(as.radialNetwork(hc), fontFamily = &quot;cursive&quot;)
+CanadaPC &lt;- list(name = &quot;Canada&quot;, children = list(list(name = &quot;Newfoundland&quot;, 
+                    children = list(list(name = &quot;St. John&#39;s&quot;))), 
+                    list(name = &quot;PEI&quot;, 
+                        children = list(list(name = &quot;Charlottetown&quot;))), 
+                    list(name = &quot;Nova Scotia&quot;, 
+                        children = list(list(name = &quot;Halifax&quot;))), 
+                    list(name = &quot;New Brunswick&quot;, 
+                        children = list(list(name = &quot;Fredericton&quot;))), 
+                    list(name = &quot;Quebec&quot;, 
+                        children = list(list(name = &quot;Montreal&quot;), list(name = &quot;Quebec City&quot;))), 
+                    list(name = &quot;Ontario&quot;, 
+                        children = list(list(name = &quot;Toronto&quot;), list(name = &quot;Ottawa&quot;))), 
+                    list(name = &quot;Manitoba&quot;, 
+                        children = list(list(name = &quot;Winnipeg&quot;))), 
+                    list(name = &quot;Saskatchewan&quot;, 
+                        children = list(list(name = &quot;Regina&quot;))), 
+                    list(name = &quot;Nunavuet&quot;, 
+                        children = list(list(name = &quot;Iqaluit&quot;))), 
+                    list(name = &quot;NWT&quot;, 
+                        children = list(list(name = &quot;Yellowknife&quot;))), 
+                    list(name = &quot;Alberta&quot;, 
+                        children = list(list(name = &quot;Edmonton&quot;))), 
+                    list(name = &quot;British Columbia&quot;,
+                        children = list(list(name = &quot;Victoria&quot;), list(name = &quot;Vancouver&quot;))), 
+                    list(name = &quot;Yukon&quot;, 
+                        children = list(list(name = &quot;Whitehorse&quot;)))))
+diagonalNetwork(List = CanadaPC, fontSize = 10)
+
+#----动效网络图----
+data(MisLinks) 
+data(MisNodes)
+#无向图
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4, zoom = TRUE)
+#有图注
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Nodesize = &quot;size&quot;, radiusCalculation = &quot;Math.sqrt(d.nodesize)+6&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4, legend = TRUE)
+#有向图
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4, arrows = TRUE)
+
+URL &lt;- paste0(&quot;https://cdn.rawgit.com/christophergandrud/networkD3/&quot;, 
+            &quot;master/JSONdata/miserables.json&quot;)
+MisJson &lt;- jsonlite::fromJSON(URL)
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4)
+#滚轮缩放
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4, zoom = TRUE)
+
+#设定边界
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.4, bounded = TRUE)
+#带标签
+forceNetwork(Links = MisJson$links, Nodes = MisJson$nodes, 
+            Source = &quot;source&quot;, Target = &quot;target&quot;, Value = &quot;value&quot;, 
+            NodeID = &quot;name&quot;, Group = &quot;group&quot;, opacity = 0.4, zoom = TRUE,
+            bounded = TRUE, opacityNoHover = TRUE)
+#寻找边缘并上色
+which(MisNodes == &quot;Valjean&quot;, arr = TRUE)[1] - 1 
+ValjeanInds = which(MisLinks == 11, arr = TRUE)[, 1]
+ValjeanCols = ifelse(1:nrow(MisLinks) %in% ValjeanInds, &quot;#bf3eff&quot;, &quot;#666&quot;)
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 0.8, linkColour = ValjeanCols)
+
+MyClickScript &lt;- &#39;alert(&quot;You clicked &quot; + d.name + &quot; which is in row &quot; + (d.index + 1) + &quot; of your original R data frame&quot;);&#39;
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = &quot;source&quot;, 
+            Target = &quot;target&quot;, Value = &quot;value&quot;, NodeID = &quot;name&quot;, 
+            Group = &quot;group&quot;, opacity = 1, zoom = FALSE, 
+            bounded = TRUE, clickAction = MyClickScript)
+
+#----将图数据转换为列表----
+library(igraph)
+karate &lt;- make_graph(&quot;Zachary&quot;)
+wc &lt;- cluster_walktrap(karate)
+members &lt;- membership(wc)
+karate_d3 &lt;- igraph_to_networkD3(karate, group = members)
+forceNetwork(Links = karate_d3$links, Nodes = karate_d3$nodes, Source = &#39;source&#39;, 
+            Target = &#39;target&#39;, NodeID = &#39;name&#39;, Group = &#39;group&#39;)
+data(&#39;SchoolsJournals&#39;)
+class(SchoolsJournals)
+SchoolsJournals &lt;- graph.data.frame(SchoolsJournals, directed = FALSE)
+#write.csv(SchoolsJournals,file = &quot;schools.csv&quot;)
+SchoolsJournals &lt;- simplify(SchoolsJournals)
+plot(SchoolsJournals)
+wt &lt;- cluster_walktrap(SchoolsJournals, steps = 6)
+members &lt;- membership(wt)
+sj_list &lt;- igraph_to_networkD3(SchoolsJournals, group = members)
+forceNetwork(Links = sj_list$links, Nodes = sj_list$nodes, 
+            Source = &#39;source&#39;, Target = &#39;target&#39;, NodeID = &#39;name&#39;, 
+            Group = &#39;group&#39;, zoom = TRUE, linkDistance = 200)
+#----共关键词----
+#keywords &lt;- c(&quot;a&quot;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;)
+#cooccurrence_matrix &lt;- matrix(c(0,1,1,1,0,
+#                                1,0,1,1,1,
+#                                1,1,0,0,1,
+#                                1,1,0,0,0,
+#                                0,1,1,0,0), nrow = 5)
+#rownames(cooccurrence_matrix) &lt;- keywords
+#colnames(cooccurrence_matrix) &lt;- keywords
+
+library(foreign)
+library(readxl)
+kw &lt;- read_excel(&#39;C:\\Users\\yoxose\\Desktop\\keywords.xlsx&#39;)
+i = 1
+x = 1
+for (i in 1:(nrow(kw) - 1)) &#123;
+if (kw[i, 2] == kw[i + 1, 2]) &#123;
+    kw[i, 3] &lt;- x
+&#125; else &#123;
+    x &lt;- x + 1
+    kw[i, 3] &lt;- x - 1
+    kw[i + 1, 3] &lt;- x
+&#125;
+&#125;
+
+kw[i + 1, 3] &lt;- kw[i, 3]
+M_name &lt;- unique(kw$keywords)
+library(dplyr)
+df &lt;- data.frame()
+i=1
+j=1
+for (i in 1:3) &#123;
+Sub &lt;- subset(kw,number==i)
+Subkw &lt;- as.vector(Sub$keywords)
+for (j in 1:length(M_name)) &#123;
+    if(length(intersect(M_name[j], Subkw)) &gt; 0)&#123;
+    row &lt;- as.data.frame(t(paste(M_name[j], Subkw, sep = &quot;&quot;)))
+    df &lt;- bind_rows(df, row)
+    &#125;
+&#125;
+&#125;
+
+kwm &lt;- matrix(NA, nrow = length(M_name), ncol = length(M_name))
+rownames(kwm) &lt;- M_name
+colnames(kwm) &lt;- M_name
+i=1
+j=1
+for (i in 1:length(M_name)) &#123;
+for (j in 1:length(M_name)) &#123;
+    kwm[i,j] &lt;- paste(rownames(kwm)[i],colnames(kwm)[j],sep = &quot;&quot;)
+    vec_df &lt;- do.call(&quot;c&quot;,df)
+    if(length(intersect(kwm[i,j], vec_df)) &gt; 0)&#123;
+    kwm[i,j] &lt;- length(grep(kwm[i,j], vec_df))
+    &#125;else&#123;
+    kwm[i,j] &lt;- 0
+    &#125;
+&#125;
+&#125;
+
+i=1
+j=1
+for (i in 1:length(M_name)) &#123;
+for (j in 1:length(M_name)) &#123;
+    if(i==j)&#123;
+    kwm[i,j] &lt;- 0
+    &#125;
+&#125;
+&#125;
+kwm &lt;- matrix(as.numeric(kwm), nrow = length(M_name), ncol = length(M_name))
+rownames(kwm) &lt;- M_name
+colnames(kwm) &lt;- M_name
+g &lt;- graph_from_adjacency_matrix(kwm, mode = &quot;undirected&quot;, weighted = T)
+wt &lt;- cluster_walktrap(g, steps = 3) 
+members &lt;- membership(wt)
+g3d &lt;- igraph_to_networkD3(g,group = members)
+i=1
+for (i in 1:length(g3d$nodes$name)) &#123;
+gn &lt;- g3d$nodes$name[i]
+g3d$nodes$size[i] &lt;- length(grep(gn, kw$keywords))
+&#125;
+square &lt;- function(x) &#123;
+return(x^2)
+&#125;
+g3d$links$value &lt;- square(g3d$links$value)
+colors &lt;- &#39;d3.scaleOrdinal().range([&quot;#7d3945&quot;, &quot;#244457&quot;])&#39;
+forceNetwork(Links = g3d$links, Nodes = g3d$nodes, 
+            Source = &#39;source&#39;, Target = &#39;target&#39;, NodeID = &#39;name&#39;, 
+            Group = &#39;group&#39;, zoom = TRUE, Value = &quot;value&quot;, Nodesize = &quot;size&quot;,
+            radiusCalculation = JS(&#39;Math.pow(d.nodesize, 2)+5&#39;),
+            colourScale = colors)
+
+#----辐射树----
+URL &lt;- paste0(&quot;https://cdn.rawgit.com/christophergandrud/networkD3/&quot;, 
+            &quot;master/JSONdata//flare.json&quot;)
+Flare &lt;- jsonlite::fromJSON(URL, simplifyDataFrame = FALSE)
+radialNetwork(List = Flare, fontSize = 10, opacity = 0.9)
+hc &lt;- hclust(dist(USArrests), &quot;ave&quot;) 
+radialNetwork(as.radialNetwork(hc)) 
+radialNetwork(as.radialNetwork(hc), fontFamily = &quot;cursive&quot;)
+CanadaPC &lt;- list(name = &quot;Canada&quot;, 
+                children = list(list(name = &quot;Newfoundland&quot;, 
+                                    children = list(list(name = &quot;St. John&#39;s&quot;))), 
+                                list(name = &quot;PEI&quot;, 
+                                    children = list(list(name = &quot;Charlottetown&quot;))), 
+                                list(name = &quot;Nova Scotia&quot;, 
+                                    children = list(list(name = &quot;Halifax&quot;))), 
+                                list(name = &quot;New Brunswick&quot;, 
+                                    children = list(list(name = &quot;Fredericton&quot;))), 
+                                list(name = &quot;Quebec&quot;,
+                                    children = list(list(name = &quot;Montreal&quot;), list(name = &quot;Quebec City&quot;))), 
+                                list(name = &quot;Ontario&quot;, 
+                                    children = list(list(name = &quot;Toronto&quot;), list(name = &quot;Ottawa&quot;))), 
+                                list(name = &quot;Manitoba&quot;, 
+                                    children = list(list(name = &quot;Winnipeg&quot;))), 
+                                list(name = &quot;Saskatchewan&quot;, 
+                                    children = list(list(name = &quot;Regina&quot;))), 
+                                list(name = &quot;Nunavuet&quot;, 
+                                    children = list(list(name = &quot;Iqaluit&quot;))), 
+                                list(name = &quot;NWT&quot;, 
+                                    children = list(list(name = &quot;Yellowknife&quot;))), 
+                                list(name = &quot;Alberta&quot;, 
+                                    children = list(list(name = &quot;Edmonton&quot;))), 
+                                list(name = &quot;British Columbia&quot;, 
+                                    children = list(list(name = &quot;Victoria&quot;), list(name = &quot;Vancouver&quot;))), 
+                                list(name = &quot;Yukon&quot;, 
+                                    children = list(list(name = &quot;Whitehorse&quot;)))
+                                ))
+radialNetwork(List = CanadaPC, fontSize = 10)
+
+#----桑基图----
+URL &lt;- paste0(&#39;https://cdn.rawgit.com/christophergandrud/networkD3/&#39;, 
+            &#39;master/JSONdata/energy.json&#39;) 
+energy &lt;- jsonlite::fromJSON(URL)
+sankeyNetwork(Links = energy$links, Nodes = energy$nodes, 
+            Source = &#39;source&#39;, Target = &#39;target&#39;, Value = &#39;value&#39;, 
+            NodeID = &#39;name&#39;, units = &#39;TWh&#39;, fontSize = 12, nodeWidth = 30)
+energy$links$energy_type &lt;- sub(&#39; .*&#39;, &#39;&#39;, energy$nodes[energy$links$source + 1, &#39;name&#39;])
+sankeyNetwork(Links = energy$links, Nodes = energy$nodes, 
+            Source = &#39;source&#39;, Target = &#39;target&#39;, Value = &#39;value&#39;, 
+            NodeID = &#39;name&#39;, LinkGroup = &#39;energy_type&#39;, NodeGroup = NULL)
+
+#----简单网络图----
+Source &lt;- c(&quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;C&quot;, &quot;D&quot;) 
+Target &lt;- c(&quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;J&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;I&quot;) 
+NetworkData &lt;- data.frame(Source, Target)
+simpleNetwork(NetworkData) 
+simpleNetwork(NetworkData, fontFamily = &quot;sans-serif&quot;)
+#----简单网络图延伸为桑基图----
+Net &lt;- graph.data.frame(NetworkData)
+wt &lt;- cluster_walktrap(Net, steps = 3) 
+members &lt;- membership(wt)
+netd &lt;- igraph_to_networkD3(Net)
+netd$links$value &lt;- c(1:1)
+sankeyNetwork(Links = netd$links, Nodes = netd$nodes, 
+            Source = &#39;source&#39;, Target = &#39;target&#39;, Value = &#39;value&#39;,
+            NodeID = &#39;name&#39;, units = &#39;TWh&#39;, fontSize = 120, nodeWidth = 30)
+#----保存----
+saveNetwork(sankey, file = &quot;sankey.htm&quot;, selfcontained = TRUE)
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/14/clean-text-by-Python/" rel="prev" title="clean text by Python">
+      <i class="fa fa-chevron-left"></i> clean text by Python
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoxose</p>
+  <div class="site-description" itemprop="description">But these are the cards we've been dealt, so we might as well play them</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoxose</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
