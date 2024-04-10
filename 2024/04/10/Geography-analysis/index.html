@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="About how to plot a map by yourself from the Geojson format of url:https:&#x2F;&#x2F;geojson.io&#x2F;#map&#x3D;2&#x2F;0&#x2F;20setwd(&quot;C:\\Users\\Tiany\\Desktop\\202401\\03\\plot&quot;) library(sf) w_map &lt;- st_read(dsn &#x3D; &amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geography_analysis">
+<meta property="og:url" content="http://example.com/2024/04/10/Geography-analysis/index.html">
+<meta property="og:site_name" content="YOXOSE">
+<meta property="og:description" content="About how to plot a map by yourself from the Geojson format of url:https:&#x2F;&#x2F;geojson.io&#x2F;#map&#x3D;2&#x2F;0&#x2F;20setwd(&quot;C:\\Users\\Tiany\\Desktop\\202401\\03\\plot&quot;) library(sf) w_map &lt;- st_read(dsn &#x3D; &amp;q">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-10T08:42:57.000Z">
+<meta property="article:modified_time" content="2024-04-10T08:51:08.728Z">
+<meta property="article:author" content="yoxose">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/04/10/Geography-analysis/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Geography_analysis | YOXOSE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YOXOSE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/10/Geography-analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yoxose">
+      <meta itemprop="description" content="But these are the cards we've been dealt, so we might as well play them">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Geography_analysis
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-04-10 16:42:57 / 修改时间：16:51:08" itemprop="dateCreated datePublished" datetime="2024-04-10T16:42:57+08:00">2024-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="About-how-to-plot-a-map-by-yourself-from-the-Geojson-format-of-url-https-geojson-io-map-2-0-20"><a href="#About-how-to-plot-a-map-by-yourself-from-the-Geojson-format-of-url-https-geojson-io-map-2-0-20" class="headerlink" title="About how to plot a map by yourself from the Geojson format of url:https://geojson.io/#map=2/0/20"></a>About how to plot a map by yourself from the Geojson format of url:<a target="_blank" rel="noopener" href="https://geojson.io/#map=2/0/20">https://geojson.io/#map=2/0/20</a></h3><pre><code>setwd(&quot;C:\\Users\\Tiany\\Desktop\\202401\\03\\plot&quot;)
+library(sf)
+w_map &lt;- st_read(dsn = &quot;world.zh.json&quot;)#已经处理好的json文件
+n_w_map &lt;-as.data.frame(w_map$name)
+library(readxl)
+data &lt;- read_excel(&quot;country.xlsx&quot;)
+n_data &lt;- data
+n_data[n_data$country==&quot;波斯尼亚和黑塞哥维那&quot;,1] &lt;- &quot;波黑&quot;
+n_data$校对 &lt;- NA
+#对收集的数据中的国家名称以及地图中的国家名称进行对应校对
+i=1
+for (i in 1:length(n_data$country)) &#123;
+a &lt;- paste(intersect(n_data$country[i],w_map$name),&quot;NA&quot;)
+if(a==&quot; NA&quot;)&#123;
+    n_data[i,5] &lt;- &quot;F&quot;
+&#125;else&#123;
+    i = i+1
+&#125;
+&#125;
+
+plot(w_map[1])#绘制世界地图
+
+library(terra)
+library(dplyr)
+library(spData)
+library(spDataLarge)
+
+library(tmap)    
+library(leaflet) 
+library(ggplot2) 
+
+#nz_elev = rast(system.file(&quot;raster/nz_elev.tif&quot;, package = &quot;spDataLarge&quot;))
+
+tm_shape(w_map[1]) + 
+tm_fill()
+
+tm_shape(w_map) +
+tm_borders() 
+
+tm_shape(w_map) +
+tm_fill() +
+tm_borders() 
+
+tm_shape(w_map) +
+tm_polygons()
+
+tm_shape(w_map) +
+tm_symbols()
+
+w_map_P &lt;- tm_shape(w_map) + tm_polygons()
+class(w_map_P)
+
+#将数据匹配到地图上
+w_map1 &lt;- w_map
+w_map1$speciesnum &lt;- NA#建立数据列
+n_data$校对 &lt;- ifelse(is.na(n_data$校对), &quot;T&quot;, &quot;F&quot;)
+n_data1 &lt;- n_data %&gt;%
+filter(n_data$校对 == &quot;T&quot;)#提取符合条件的子集
+
+i=1
+j=1
+for (i in 1:length(w_map1$name)) &#123;
+a &lt;- w_map1$name[i]
+for (j in 1:length(n_data1$country)) &#123;
+    b &lt;- n_data1$country[j]
+    if(a==b)&#123;
+    w_map1[i,7] &lt;- n_data1[j,4]
+    &#125;else&#123;
+    j &lt;- j+1
+    &#125;
+&#125;
+&#125;
+
+
+tm_shape(w_map1) + tm_polygons(&quot;speciesnum&quot;)
+
+data2 &lt;- read_excel(&quot;Southeast_Asia.xlsx&quot;, sheet = 1)
+data3 &lt;- read_excel(&quot;Southeast_Asia.xlsx&quot;, sheet = 2)
+#CN_map &lt;- w_map[w_map[1]$name %in% c(&quot;中国&quot;),]
+#tm_shape(CN_map) +
+#tm_polygons()
+
+southeast_asia &lt;- c(&#39;印度尼西亚&#39;,
+                    &#39;马来西亚&#39;,
+                    &#39;越南&#39;,
+                    &#39;文莱&#39;,
+                    &#39;泰国&#39;,
+                    &#39;缅甸&#39;,
+                    &#39;菲律宾&#39;,
+                    &#39;老挝&#39;,
+                    &#39;柬埔寨&#39;,
+                    &#39;新加坡&#39;,
+                    &#39;东帝汶&#39;,
+                    &#39;巴布亚新几内亚&#39;,
+                    &#39;所罗门群岛&#39;
+)
+
+SA_map &lt;- w_map1[w_map1[1]$name %in% southeast_asia,]#提取东南亚的数据
+tm_shape(SA_map) +
+tm_polygons(&quot;name&quot;)
+
+tm_shape(SA_map) +
+tm_polygons(&quot;speciesnum&quot;,
+            #breaks = c(0,10000,20000,30000),
+            palette=&quot;Blues&quot;,)+
+tm_text(&#39;name&#39;,size=&quot;AREA&quot;, scale=1.5)+
+tm_style(&quot;grey&quot;)#根据数据绘制热图
+
+#自己制作geojson格式的地图
+library(jsonlite)
+G_map &lt;- jsonlite::fromJSON(&quot;world.json&quot;)#读取geojson格式的数据
+a &lt;- G_map$features$properties$name#提取国家名
+b &lt;- G_map$features$geometry$coordinates#提取形状信息
+c &lt;- data.frame(c(1:length(a)),c(1:length(b)))
+c[,1] &lt;- a
+c[,2] &lt;- b
+#将数据转化为list
+list_change &lt;- function(x) &#123;
+if (is.list(x)) &#123;
+    x
+&#125;else&#123;
+list(x)
+    &#125;
+&#125;#
+
+#将array类型的数据转化为list
+list_array &lt;- function(x)&#123;
+if(is.array(x))&#123;
+    list(as.matrix(x[1,,]))
+&#125;else&#123;
+    x
+&#125;
+&#125;
+
+mu_b &lt;- b[[1]]#形状信息的具体数值
+mu_b &lt;- list(mu_b)
+#aa &lt;- lapply(mu_b, list_change)
+
+#yy &lt;- list_change(mu_b)
+#b2 &lt;- as.matrix(b[[2]][1,,])
+#b2 &lt;- list(b2)
+#b4 &lt;- b[[4]]
+#mu_b4 &lt;- lapply(b4, list_change)
+#st_b4 &lt;- st_multipolygon(mu_b4)
+#test_df &lt;- data.frame(NA,NA)
+#colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+#test_df$name &lt;- a[[4]]
+#test_df$polygon &lt;- st_geometry(st_b4)
+#test_df &lt;- st_as_sf(test_df)
+#tm_shape(test_df) +
+#  tm_polygons()
+#
+
+G_map_df &lt;- data.frame(NA,NA)
+colnames(G_map_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+
+options(error = expression(&#123;
+message(&quot;错误发生在第 &quot;, i, &quot; 步&quot;)
+&#125;))#检测错误
+
+i = 1
+#对数据进行地图格式的转换
+for (i in 1:52) &#123;
+if(is.list(b[[i]]))&#123;
+    mu_b &lt;- b[[i]]
+    if(is.matrix(mu_b[[1]]))&#123;
+    mu_b &lt;- mu_b
+    &#125;else&#123;
+    mu_b &lt;- lapply(mu_b, list_array)
+    &#125;
+    &#125;else&#123;
+    if(is.matrix(b[[i]]))&#123;
+    mu_b &lt;- list(b[[i]])
+    &#125;else&#123;
+    mu_b &lt;- list(as.matrix(b[[i]][1,,]))
+    &#125;
+&#125;#首先对数据进行第一次list转换
+#mu_b &lt;- ifelse(is.list(b[[i]]),b[[i]],list(b[[i]]))
+mu_b &lt;- lapply(mu_b, list_change)#对数据进行st_multipolygon可识别的第二次list转变
+st_b &lt;- st_multipolygon(mu_b)#转换为多个多边形几何
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[i]]
+test_df$polygon &lt;- st_geometry(st_b)#转换为画图可使用的多重几何数据
+G_map_df &lt;- do.call(rbind,list(G_map_df,test_df))
+&#125;
+G_map_df &lt;- na.omit(G_map_df)
+G_map_df &lt;- st_as_sf(G_map_df)#转换为画图可用的sf类数据
+
+tm_shape(G_map_df) +
+tm_polygons()
+
+i=1
+for (i in 1:52) &#123;
+plot(G_map_df[i,])
+print(i)
+&#125;#逐个检测问题
+
+#解决有些国家不能绘制的问题
+b42 &lt;- b[[42]]
+b42 &lt;- lapply(b42, list_array)
+b42 &lt;- lapply(b42, list_change)
+b42 &lt;- st_multipolygon(b42)
+b42 &lt;- st_geometry(b42)
+sf_use_s2(FALSE)
+tm_shape(b42) +
+tm_polygons()
+G_map_df$polygon[42] &lt;- b42
+
+
+#四维array数据的提取
+mu_b &lt;- b[[53]][1,,,]
+mu_b &lt;- list(mu_b)
+mu_b &lt;- lapply(mu_b, list_change)
+st_b &lt;- st_multipolygon(mu_b)
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[53]]
+test_df$polygon &lt;- st_geometry(st_b)
+test_df &lt;- st_as_sf(test_df)
+G_map_df &lt;- do.call(rbind,list(G_map_df,test_df))
+
+
+G_map_df1 &lt;- data.frame(NA,NA)
+colnames(G_map_df1) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+i = 54
+for (i in 54:95) &#123;
+if(is.list(b[[i]]))&#123;
+    mu_b &lt;- b[[i]]
+    if(is.matrix(mu_b[[1]]))&#123;
+    mu_b &lt;- mu_b
+    &#125;else&#123;
+    mu_b &lt;- lapply(mu_b, list_array)
+    &#125;
+&#125;else&#123;
+    if(is.matrix(b[[i]]))&#123;
+    mu_b &lt;- list(b[[i]])
+    &#125;else&#123;
+    mu_b &lt;- list(as.matrix(b[[i]][1,,]))
+    &#125;
+&#125;
+#mu_b &lt;- ifelse(is.list(b[[i]]),b[[i]],list(b[[i]]))
+mu_b &lt;- lapply(mu_b, list_change)
+st_b &lt;- st_multipolygon(mu_b)
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[i]]
+test_df$polygon &lt;- st_geometry(st_b)
+G_map_df1 &lt;- do.call(rbind,list(G_map_df1,test_df))
+&#125;
+G_map_df1 &lt;- na.omit(G_map_df1)
+G_map_df1 &lt;- st_as_sf(G_map_df1)
+tm_shape(G_map_df1) +
+tm_polygons()
+G_map_df &lt;- do.call(rbind,list(G_map_df,G_map_df1))
+tm_shape(G_map_df) +
+tm_polygons()
+
+mu_b &lt;- b[[96]][1,,,]
+mu_b &lt;- list(mu_b)
+mu_b &lt;- lapply(mu_b, list_change)
+st_b &lt;- st_multipolygon(mu_b)
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[96]]
+test_df$polygon &lt;- st_geometry(st_b)
+test_df &lt;- st_as_sf(test_df)
+G_map_df &lt;- do.call(rbind,list(G_map_df,test_df))
+
+
+G_map_df2 &lt;- data.frame(NA,NA)
+colnames(G_map_df2) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+i = 97
+for (i in 97:216) &#123;
+if(is.list(b[[i]]))&#123;
+    mu_b &lt;- b[[i]]
+    if(is.matrix(mu_b[[1]]))&#123;
+    mu_b &lt;- mu_b
+    &#125;else&#123;
+    mu_b &lt;- lapply(mu_b, list_array)
+    &#125;
+&#125;else&#123;
+    if(is.matrix(b[[i]]))&#123;
+    mu_b &lt;- list(b[[i]])
+    &#125;else&#123;
+    mu_b &lt;- list(as.matrix(b[[i]][1,,]))
+    &#125;
+&#125;
+#mu_b &lt;- ifelse(is.list(b[[i]]),b[[i]],list(b[[i]]))
+mu_b &lt;- lapply(mu_b, list_change)
+st_b &lt;- st_multipolygon(mu_b)
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[i]]
+test_df$polygon &lt;- st_geometry(st_b)
+G_map_df2 &lt;- do.call(rbind,list(G_map_df2,test_df))
+&#125;
+G_map_df2 &lt;- na.omit(G_map_df2)
+G_map_df2 &lt;- st_as_sf(G_map_df2)
+tm_shape(G_map_df2) +
+tm_polygons()
+G_map_df &lt;- do.call(rbind,list(G_map_df,G_map_df2))
+tm_shape(G_map_df) +
+tm_polygons()
+
+mu_b &lt;- b[[217]][1,,,]
+mu_b &lt;- list(mu_b)
+mu_b &lt;- lapply(mu_b, list_change)
+st_b &lt;- st_multipolygon(mu_b)
+test_df &lt;- data.frame(NA,NA)
+colnames(test_df) &lt;- c(&#39;name&#39;,&#39;polygon&#39;)
+test_df$name &lt;- a[[217]]
+test_df$polygon &lt;- st_geometry(st_b)
+test_df &lt;- st_as_sf(test_df)
+G_map_df &lt;- do.call(rbind,list(G_map_df,test_df))
+
+#检查每个国家的形状
+i=1
+for (i in 1:217) &#123;
+plot(G_map_df[i,])
+print(i)
+&#125;
+#报错的国家可以使用geojson.io这个网站手动绘制边界导出geojson文件再替换。
+#写出数据
+st_write(G_map_df, &quot;world_map_from_web.shp&quot;)
+json &lt;- toJSON(G_map_df, pretty = TRUE)
+cat(json, file = &#39;world_json.txt&#39;, fill = FALSE, labels = NULL, append = FALSE)
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/28/network-data-analysis-by-R/" rel="prev" title="Network data analysis by R">
+      <i class="fa fa-chevron-left"></i> Network data analysis by R
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#About-how-to-plot-a-map-by-yourself-from-the-Geojson-format-of-url-https-geojson-io-map-2-0-20"><span class="nav-number">1.</span> <span class="nav-text">About how to plot a map by yourself from the Geojson format of url:https:&#x2F;&#x2F;geojson.io&#x2F;#map&#x3D;2&#x2F;0&#x2F;20</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yoxose</p>
+  <div class="site-description" itemprop="description">But these are the cards we've been dealt, so we might as well play them</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoxose</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
