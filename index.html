@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-04-10 16:42:57 / 修改时间：16:51:08" itemprop="dateCreated datePublished" datetime="2024-04-10T16:42:57+08:00">2024-04-10</time>
+              <time title="创建时间：2024-04-10 16:42:57" itemprop="dateCreated datePublished" datetime="2024-04-10T16:42:57+08:00">2024-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-11 14:52:28" itemprop="dateModified" datetime="2024-04-11T14:52:28+08:00">2024-04-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -522,6 +528,9 @@ print(i)
 st_write(G_map_df, &quot;world_map_from_web.shp&quot;)
 json &lt;- toJSON(G_map_df, pretty = TRUE)
 cat(json, file = &#39;world_json.txt&#39;, fill = FALSE, labels = NULL, append = FALSE)
+
+#细化分析
+a &lt;- st_cast(w_map[115, 1], &quot;POLYGON&quot;)#将一个国家的每个板块进行拆分
 </code></pre>
 
       
