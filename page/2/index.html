@@ -147,6 +147,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/22/Make-a-list-of-folder-names/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WANG Wei-Jia">
+      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/22/Make-a-list-of-folder-names/" class="post-title-link" itemprop="url">Making a list of folder names</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-22 15:27:08 / 修改时间：15:34:06" itemprop="dateCreated datePublished" datetime="2023-05-22T15:27:08+08:00">2023-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <pre><code>echo $(ls) &gt; list.txt
+</code></pre>
+<p>Open R language</p>
+<pre><code>library(readr)
+a &lt;- read_table(&quot;list.txt&quot;,col_names = F)
+class(a)
+b &lt;- t(a)
+write(b, file = &quot;list.csv&quot;)
+</code></pre>
+<p>Finally, change the ‘csv’ to ‘xlsx’ by excel.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/19/ZoeDepth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1404,123 +1485,6 @@ done
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/06/Construct-a-phylogenetic-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WANG Wei-Jia">
-      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YOXOSE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/06/Construct-a-phylogenetic-tree/" class="post-title-link" itemprop="url">Construct a phylogenetic tree</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-06 16:46:40" itemprop="dateCreated datePublished" datetime="2022-10-06T16:46:40+08:00">2022-10-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-10 17:38:44" itemprop="dateModified" datetime="2022-10-10T17:38:44+08:00">2022-10-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/" itemprop="url" rel="index"><span itemprop="name">example</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This is an example about how to use DNA sequences to create a phylogenetic tree for beginner. If there are any mistakes, Plase contact me (<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#119;&#101;&#x69;&#106;&#105;&#x61;&#x36;&#x39;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#x77;&#97;&#x6e;&#x67;&#119;&#101;&#x69;&#106;&#105;&#x61;&#x36;&#x39;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>). Thank you for your help to improve the quality of my article! </p>
-<h2 id="PREPARE-SEQUENCES"><a href="#PREPARE-SEQUENCES" class="headerlink" title="PREPARE SEQUENCES"></a>PREPARE SEQUENCES</h2><h3 id="Download-sequence-from-NCBI"><a href="#Download-sequence-from-NCBI" class="headerlink" title="Download sequence from NCBI"></a>Download sequence from NCBI</h3><p>Many times, we can not get all DNA sequence which needed in our research by ourselves’ sample. So, in this case, we need the help of public database as GeneBank.</p>
-<p>If you now the number of species that you want to use in the research, you can go to this web - <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology Information (nih.gov)</a> to download the sequesce. For example, in my study, I want a chloroplast genome of <em>Pedicularis nigra</em> and I know the number of this species as <strong>OL544940</strong>, it is easy to find the sequence which I need by <strong>search box</strong> in the web. </p>
-<p>But the accurate numbers of our species are also hard found sometimes, in this situations, we can search the species names directly and click <strong>Nucleotide</strong>–on the left bottom of result page to find the sequence.</p>
-<blockquote>
-<p>species name&#x2F;number -&gt; ‘search’ -&gt; ‘Nucleotide’ -&gt; the sequence -&gt; ‘Send to’ -&gt; ‘File’</p>
-</blockquote>
-<p>PS: Even in same species, the sequences also have a few differences, but how to find the sequence,  we could find the one which is most close located in where your sample collected.</p>
-<h3 id="Change-sequence-ID"><a href="#Change-sequence-ID" class="headerlink" title="Change sequence ID"></a>Change sequence ID</h3><p>When we downlod so many sequences and change their names in <strong>Geneious</strong>, it is too hard for us to rename thousands of sequences. To make that easier, we can use <strong>TBtools</strong> to change the names of sequences. How to use the TBtools, you can refer to my vedio– <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19g4y1B7GJ/?spm_id_from=333.999.0.0&vd_source=37eccaba6801cfc7a4547c68a9bb7e4a">change the ID</a> or any other instruction of TBtools.</p>
-<h3 id="Modify-the-sequence"><a href="#Modify-the-sequence" class="headerlink" title="Modify the sequence"></a>Modify the sequence</h3><p>After we downlod all the sequences which we use in our research,  the multiple alignment program for amino acid or nucleotide sequences will be used. We can get the program from the link-<a target="_blank" rel="noopener" href="https://mafft.cbrc.jp/alignment/software/">MAFFT - a multiple sequence alignment program (cbrc.jp)</a> and learn how to use it: <a target="_blank" rel="noopener" href="https://academic.oup.com/mbe/article/30/4/772/1073398?login=true">MAFFT Multiple Sequence Alignment Software Version 7: Improvements in Performance and Usability </a></p>
-<p>Finishing the MAFFT operation, we can use trimAL to clip the output of MAFFT. There is a introduction of trimAL–<a target="_blank" rel="noopener" href="http://trimal.cgenomics.org/introduction">introduction [trimAl]</a>.</p>
-<h3 id="Construct-the-maximum-likehood-phylogenetic-tree-by-RAxML"><a href="#Construct-the-maximum-likehood-phylogenetic-tree-by-RAxML" class="headerlink" title="Construct the maximum likehood phylogenetic  tree by RAxML"></a>Construct the maximum likehood phylogenetic  tree by RAxML</h3><p>When we get the final matrix of sequences with fasta format, we can use <a target="_blank" rel="noopener" href="https://antonellilab.github.io/raxmlGUI/">raxmlGUI 2.0</a> to construct the ML tree. And also can use <a target="_blank" rel="noopener" href="https://github.com/stamatak/standard-RAxML">raxmlHPC-PTHREADS-SSE3 </a> with linux system.</p>
-<pre><code>wget https://github.com/stamatak/standard-RAxML/archive/v8.2.12.tar.gz 
-tar zxf RAxML-v8.2.12.tar.gz
-cd RAxML-8.2.12/
-make -f Makefile.SSE3.PTHREADS.gcc -j 4
-rm *.o
-make -f Makefile.AVX.PTHREADS.gcc -j 4
-rm *.o
-echo &#39;PATH=$PATH:/(your-own-path)/RAxML-8.2.12/&#39; &gt;&gt; ~/.bashrc
-source ~/.bashrc
-</code></pre>
-<p>Example:</p>
-<pre><code>raxmlHPC-PTHREADS-SSE3 -T 10 -f a -x 12345 -p 12345 -N 1000 -m GTRGAMMA -k -O -n output.tre -s &quot;**input&quot; -w &quot;**output&quot;
-</code></pre>
-<p>From all output results, choose the <strong>RAxML_bipartitions</strong> to see the bootstrap value on every nodes by <a target="_blank" rel="noopener" href="http://tree.bio.ed.ac.uk/software/Figtree/">Figtree</a>.</p>
-<h3 id="Construct-the-bayesian-inference-tree-by-MrBayes"><a href="#Construct-the-bayesian-inference-tree-by-MrBayes" class="headerlink" title="Construct the bayesian inference tree by MrBayes"></a>Construct the bayesian inference tree by MrBayes</h3><p>we use <strong>Modeltest-ng</strong> of raxmlGUI to estimate the beat-fit model. Than, we edit the “NEX” file, add the follow code at the end of file:</p>
-<pre><code>begin mrbayes;
-log start filename = log_its.txt;
-outgroup ****;
-outgroup ****;
-lset nst=6 rates=*best-fit model*;
-prset statefreqpr = fixed(*,*,*,*) shapepr = fixed(*) revmat = fixed(*,*,*,*,*);
-mcmcp ngen=2000000 printfreq=1000 samplefreq=100 nchains=4 nruns=2 savebrlens=yes checkpoint=yes checkfreq=5000;
-mcmc;
-sumt conformat=Simple contype=Halfcompat relburnin=yes burninfrac=0.25;
-sump relburnin=yes burninfrac=0.25;
-end;
-</code></pre>
-<p>Finally, we use <strong>MPI</strong> and <strong>Mrbayes</strong> on Linux system to construct BI tree with multi-thread.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1590,7 +1554,7 @@ end;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

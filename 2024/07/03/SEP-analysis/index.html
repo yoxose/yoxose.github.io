@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="The analysis of Southeast Asia’s plantsgetwd() setwd(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\analysis&quot;) library(foreign) library(readxl) library(dplyr) c#读取数据---- data &lt;- read_excel(&quot;PSE.x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEP_analysis">
+<meta property="og:url" content="http://example.com/2024/07/03/SEP-analysis/index.html">
+<meta property="og:site_name" content="YOXOSE">
+<meta property="og:description" content="The analysis of Southeast Asia’s plantsgetwd() setwd(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\analysis&quot;) library(foreign) library(readxl) library(dplyr) c#读取数据---- data &lt;- read_excel(&quot;PSE.x">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-03T07:18:08.000Z">
+<meta property="article:modified_time" content="2024-07-03T07:22:08.098Z">
+<meta property="article:author" content="WANG Wei-Jia">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/07/03/SEP-analysis/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SEP_analysis | YOXOSE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YOXOSE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/SEP-analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WANG Wei-Jia">
+      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SEP_analysis
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-03 15:18:08 / 修改时间：15:22:08" itemprop="dateCreated datePublished" datetime="2024-07-03T15:18:08+08:00">2024-07-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="The-analysis-of-Southeast-Asia’s-plants"><a href="#The-analysis-of-Southeast-Asia’s-plants" class="headerlink" title="The analysis of Southeast Asia’s plants"></a>The analysis of Southeast Asia’s plants</h3><pre><code>getwd()
+setwd(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\analysis&quot;)
+library(foreign)
+library(readxl)
+library(dplyr)
+c#读取数据----
+data &lt;- read_excel(&quot;PSE.xlsx&quot;)
+u_data_island &lt;- unique(data$cplace)
+u_data_c &lt;- unique(data$country)
+u_data_f &lt;- unique(data$lfamily)
+u_data_g &lt;- unique(data$lgenus)
+u_data_s &lt;- unique(data$name)
+
+#以科为统计值----
+i = 1
+df &lt;- data.frame()
+for (i in 1:length(u_data_f)) &#123;
+df[i,1] &lt;- u_data_f[i]#统计科的种类
+df_a &lt;-data[u_data_f[i]==data$lfamily,]#提取不同科的子集
+df_b &lt;- length(unique(df_a$lgenus))#计算该科中的属
+df_c &lt;- length(unique(df_a$name))#计算该科中的种
+df_d &lt;- length(unique(df_a$country))#计算该科分布的国家
+df_e &lt;- length(unique(df_a$cplace))#计算该科分布的岛
+df[i,2] &lt;- df_b
+df[i,3] &lt;- df_c
+df[i,4] &lt;- df_d
+df[i,5] &lt;- df_e
+&#125;
+colnames(df) &lt;- c(&quot;family&quot;,&quot;genus&quot;,&quot;species&quot;,&quot;countries&quot;,&quot;islands&quot;)
+
+#以属为统计值----
+j = 1
+df2 &lt;- data.frame()
+for (j in 1:length(u_data_g)) &#123;
+df2[j,1] &lt;- u_data_g[j]#统计属的种类
+df2_a &lt;-data[u_data_g[j]==data$lgenus,]#以属筛选子集
+df2_b &lt;- length(unique(df2_a$name))#统计属包含的种数
+df2_c &lt;- length(unique(df2_a$country))#属分布的国家
+df2_d &lt;- length(unique(df2_a$cplace))#属分布的岛
+df2[j,2] &lt;- df2_b
+df2[j,3] &lt;- df2_c
+df2[j,4] &lt;- df2_d
+
+&#125;
+colnames(df2) &lt;- c(&quot;genus&quot;,&quot;species&quot;,&quot;countries&quot;,&quot;islands&quot;)
+
+#以种为统计对象----
+z = 1
+df3 &lt;- data.frame()
+for (z in 1:length(u_data_s)) &#123;
+df3[z,1] &lt;- u_data_s[z]
+df3_a &lt;-data[u_data_s[z]==data$name,]
+df3_b &lt;- length(unique(df3_a$country))
+df3_c &lt;- length(unique(df3_a$cplace))
+df3[z,2] &lt;- df3_b
+df3[z,3] &lt;- df3_c
+&#125;
+colnames(df3) &lt;- c(&quot;species&quot;,&quot;countries&quot;,&quot;islands&quot;)
+
+#统计每个国家分布的科属种----
+x = 1
+df4 &lt;- data.frame()
+for (x in 1:length(u_data_c)) &#123;
+a &lt;- data[data$country==u_data_c[x],]
+b &lt;- length(unique(a$lfamily))
+c &lt;- length(unique(a$lgenus))
+d &lt;- length(unique(a$name))
+df4[x,1] &lt;- u_data_c[x]
+df4[x,2] &lt;- b
+df4[x,3] &lt;- c
+df4[x,4] &lt;- d
+&#125;
+colnames(df4) &lt;- c(&quot;country&quot;,&quot;family&quot;,&quot;genus&quot;,&quot;species&quot;)
+
+#统计每个岛屿分布的科属种----
+y = 1
+df5 &lt;- data.frame()
+for (y in 1:length(u_data_island)) &#123;
+a &lt;- data[data$cplace==u_data_island[y],]
+b &lt;- length(unique(a$lfamily))
+c &lt;- length(unique(a$lgenus))
+d &lt;- length(unique(a$name))
+df5[y,1] &lt;- u_data_island[y]
+df5[y,2] &lt;- b
+df5[y,3] &lt;- c
+df5[y,4] &lt;- d
+&#125;
+colnames(df5) &lt;- c(&quot;island&quot;,&quot;family&quot;,&quot;genus&quot;,&quot;species&quot;)
+
+write.csv(df, file = &quot;family.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+write.csv(df2, file = &quot;genus.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+write.csv(df3, file = &quot;species.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+write.csv(df4, file = &quot;country.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+write.csv(df5, file = &quot;country.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+
+#绘图----
+library(sf)
+w_map &lt;- st_read(dsn = &quot;world.zh.json&quot;)#已经处理好的json文件
+n_w_map &lt;-as.data.frame(w_map$name)
+library(readxl)
+data_sum &lt;- read_excel(&quot;SEP_sum.xlsx&quot;, sheet = 2)
+n_data &lt;- data_sum
+n_data$校对 &lt;- NA
+i=1
+for (i in 1:length(n_data$island)) &#123;
+a &lt;- paste(intersect(n_data$island[i],w_map$name),&quot;NA&quot;)
+if(a==&quot; NA&quot;)&#123;
+    n_data[i,8] &lt;- &quot;F&quot;
+&#125;else&#123;
+    i = i+1
+&#125;
+&#125;
+
+plot(w_map[1])
+
+library(terra)
+library(dplyr)
+library(spData)
+library(spDataLarge)
+
+library(tmap)    
+library(leaflet) 
+library(ggplot2) 
+
+southeast_asia &lt;- c(&#39;印度尼西亚&#39;,
+                    &#39;马来西亚&#39;,
+                    &#39;越南&#39;,
+                    &#39;文莱&#39;,
+                    &#39;泰国&#39;,
+                    &#39;缅甸&#39;,
+                    &#39;菲律宾&#39;,
+                    &#39;老挝&#39;,
+                    &#39;柬埔寨&#39;,
+                    &#39;新加坡&#39;,
+                    &#39;东帝汶&#39;)
+
+
+SA_map &lt;- w_map[w_map[1]$name %in% southeast_asia,]#提取东南亚的数据
+tm_shape(SA_map) + tm_polygons()
+plot(SA_map[1])
+
+a &lt;- st_cast(SA_map[6,], &quot;POLYGON&quot;)#将一个国家的每个板块进行拆分
+#tm_shape(a[1,]) + tm_polygons()
+#tm_shape(a[2,]) + tm_polygons()
+#tm_shape(a[3,]) + tm_polygons()
+i=1
+for (i in 1:length(a$name)) &#123;
+plot(a[i,]$geometry)
+title(i)
+&#125;
+a1 &lt;- a[-2,]
+b &lt;- st_union(a1$geometry)#板块合并
+c &lt;- st_as_sf(b)#转化为sf对象
+new_map &lt;- SA_map[,c(1,6)]
+rownames(new_map) &lt;- c(1:11)
+new_map[12,1] &lt;- &quot;马来亚&quot;
+new_map[12,2] &lt;- c
+#test &lt;- new_map[-6,]
+#tm_shape(test) + tm_polygons()
+
+YN &lt;- st_cast(SA_map[8,], &quot;POLYGON&quot;)
+#遍历看哪一块对应哪一行（方法一）
+i=1
+YNs &lt;- data.frame()
+for (i in 1:length(YN$name)) &#123;
+#plot(YN[i,]$geometry)
+YNs &lt;- do.call(rbind,list(YNs,YN[i,]))
+plot(YNs$geometry)
+title(i)
+&#125;
+#直接编号（方法二）
+YN$number &lt;- c(1:length(YN$name))
+tm_shape(YN) +
+tm_polygons()+
+tm_text(&#39;number&#39;)
+
+mlg &lt;- st_union(YN$geometry[c(16,15,30,45,29,12,44,28,13)])
+mlg1 &lt;- st_as_sf(mlg)
+new_map[13,1] &lt;- &quot;马鲁古&quot;
+new_map[13,2] &lt;- mlg1
+
+plz &lt;- st_union(YN$geometry[c(8,58,27,42,54)])
+plz1 &lt;- st_as_sf(plz)
+plz1[2,1] &lt;- a$geometry[2]
+plz1[3,1] &lt;- st_as_sf(SA_map$geometry[11])
+plz2 &lt;-st_union(plz1$x)
+plz2 &lt;- st_as_sf(plz2)
+new_map[14,1] &lt;- &quot;婆罗洲&quot;
+new_map[14,2] &lt;- plz2
+tm_shape(new_map[14,2]) +
+tm_polygons()
+
+slwx &lt;- st_union(YN$geometry[c(25,51,57,50,52,7,6)])
+slwx1 &lt;- st_as_sf(slwx)
+new_map[15,1] &lt;- &quot;苏拉威西&quot;
+new_map[15,2] &lt;- slwx1
+#使用自定义公式
+sf_YN_U &lt;- function(x,y) &#123;
+a &lt;- st_union(YN$geometry[x])
+b &lt;- st_as_sf(a)
+c &lt;-data.frame()
+c[1,1] &lt;- y
+c[1,2] &lt;- b
+colnames(c) &lt;- c(&quot;name&quot;, &quot;geometry&quot;)
+c &lt;- st_as_sf(c)
+&#125;
+
+x &lt;- c(1,49,2,48,47,21,37,38,39,40,41,5,9)
+y &lt;- &quot;苏门答腊&quot;
+smda &lt;- sf_YN_U(x,y)
+new_map[16,] &lt;- smda
+
+xxt &lt;- st_union(YN$geometry[c(4,3,24,23,22,56,19,18,31,55,59,17,32,33)])
+xxt1 &lt;- st_as_sf(xxt)
+xxt1[2,1] &lt;- st_as_sf(SA_map$geometry[2])
+xxt2 &lt;-st_union(xxt1$x)
+xxt2 &lt;- st_as_sf(xxt2)
+new_map[17,1] &lt;- &quot;小巽他&quot;
+new_map[17,2] &lt;- xxt2
+
+x &lt;- c(26,43,53)
+y &lt;- &quot;爪哇岛&quot;
+zw &lt;- sf_YN_U(x,y)
+new_map[18,] &lt;- zw
+
+new_SE &lt;- new_map[c(-6,-8,-11,-2),]
+rownames(new_SE) &lt;- c(1:14)
+
+#tmaptools::palette_explorer()#看色板
+
+tm_shape(new_SE) +
+tm_polygons(&quot;name&quot;,palette=&quot;Accent&quot;)
+
+#将数据匹配到地图上
+new_SE1 &lt;- new_SE
+
+i=1
+j=1
+for (i in 1:length(new_SE1$name)) &#123;
+a &lt;- new_SE1$name[i]
+for (j in 1:length(n_data$island)) &#123;
+    b &lt;- n_data$island[j]
+    c &lt;- paste(grep(a,b),&quot;NA&quot;)
+    if(c==&quot; NA&quot;)&#123;
+    j &lt;- j+1
+    &#125;else&#123;
+    new_SE1[i,3] &lt;- n_data[j,2]
+    new_SE1[i,4] &lt;- n_data[j,4]
+    new_SE1[i,5] &lt;- n_data[j,6]
+    &#125;
+&#125;
+&#125;
+
+tm_shape(new_SE1) +
+tm_polygons(&quot;family&quot;,
+            breaks = c(220,230,240,250,260,270,280,290,300),
+            palette=&quot;Blues&quot;,)+
+#tm_text(&#39;name&#39;,size=&quot;AREA&quot;, scale=1.5)+
+tm_style(&quot;grey&quot;)#根据数据绘制热图
+
+tm_shape(new_SE1) +
+tm_polygons(&quot;genus&quot;,
+            #breaks = c(220,230,240,250,260,270,280,290,300),
+            palette=&quot;Purples&quot;,)
+
+
+tm_shape(new_SE1) +
+tm_polygons(&quot;species&quot;,
+            #breaks = c(220,230,240,250,260,270,280,290,300),
+            palette=&quot;Reds&quot;,)
+#简单化排序
+plot_data &lt;- read_excel(&quot;order.xlsx&quot;)
+library(ggplot2)
+library(RColorBrewer)
+display.brewer.all()#查看色板
+
+ggplot(data=plot_data,aes(x=x,y=y))+
+geom_line(aes(color=name),linewidth=1.5)+
+geom_point(aes(color=name),size=5)+
+scale_color_manual(values = colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14))+
+labs(y=&quot;排名&quot;,
+    x=&quot;类型&quot;)+
+theme_classic()+
+scale_y_continuous(limits = c(1,14),
+                    breaks = c(1:15))+
+scale_x_continuous(limits = c(0,2),
+                    breaks = c(0:2))
+#----各国家重复物种----
+#科----
+##构建和弦矩阵----
+MX &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX) &lt;- u_data_island
+rownames(MX) &lt;- u_data_island
+#i=1
+#Rg &lt;- u_data_island[i]
+#sub_data &lt;- data[data$cplace==Rg,]$lfamily
+#u_sub_data &lt;- unique(sub_data)
+#sub_data_other &lt;- data[data$cplace!=Rg,]$lfamily
+#u_sub_data_o &lt;- unique(sub_data_other)
+#Uni_FLB &lt;- setdiff(u_sub_data, u_sub_data_o)#补集，确定地区特有种
+#Uni_FLB &lt;- as.numeric(length(Uni_FLB))
+#if(Uni_FLB==0)&#123;
+#  endemic &lt;- c(0)
+#&#125; else &#123;
+#  endemic &lt;- length(Uni_FLB)
+#&#125;
+#MX[i,i] &lt;- Uni_FLB
+#
+#j=2
+#Rg1 &lt;- u_data_island[j]
+#sub_data1 &lt;- data[data$cplace==Rg1,]$lfamily
+#u_sub_data1 &lt;- unique(sub_data1)
+#Uni &lt;- intersect(u_sub_data, sub_data1)#交集
+#Uni &lt;- as.numeric(length(Uni))
+#MX[i,j] &lt;- Uni
+
+i=1
+j=1
+for (i in 1:length(rownames(MX))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lfamily
+u_sub_data &lt;- unique(sub_data)
+sub_data_other &lt;- data[data$cplace!=Rg,]$lfamily
+u_sub_data_o &lt;- unique(sub_data_other)
+Uni_endemic &lt;- setdiff(u_sub_data, u_sub_data_o)#补集，确定地区特有种
+Uni_endemic &lt;- as.numeric(length(Uni_endemic))
+for (j in 1:length(colnames(MX))) &#123;
+    Rg1 &lt;- u_data_island[j]
+    sub_data1 &lt;- data[data$cplace==Rg1,]$lfamily
+    u_sub_data1 &lt;- unique(sub_data1)
+    Uni &lt;- intersect(u_sub_data, u_sub_data1)#交集
+    Uni &lt;- as.numeric(length(Uni))
+    if(i==j)&#123;
+    MX[i,j] &lt;- Uni_endemic
+    &#125;else&#123;
+    MX[i,j] &lt;- Uni
+    &#125;
+&#125;
+&#125;
+
+#write.csv(MX, file = &quot;family_MX.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+
+###转换为百分比矩阵----
+i=1
+j=1
+MX_P &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX_P) &lt;- u_data_island
+rownames(MX_P) &lt;- u_data_island
+for (i in 1:length(rownames(MX))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lfamily
+u_sub_data &lt;- unique(sub_data)
+sum &lt;- length(u_sub_data)
+for (j in 1:length(colnames(MX))) &#123;
+    num &lt;- as.numeric(MX[i,j]/sum)
+    MX_P[i,j] &lt;- num*100
+&#125;
+&#125;
+#write.csv(MX_P, file = &quot;family_MX_P.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+library(networkD3)
+library(visNetwork)
+library(igraph)
+library(igraphdata)
+library(stringr)
+library(rpart)
+library(sparkline)
+library(ggplot2)
+library(RColorBrewer)
+#library(circlize)
+
+##和弦图----
+#主要观看独有科以及和那些国家有交集
+chordNetwork(Data = MX_P, width = 500, height = 500, 
+            colourScale = colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14), 
+            labels = colnames(MX),
+            fontSize = 15,
+            labelDistance = 75)#和弦图
+##UpSet图----
+#主要看相交部分占多少
+#library(ggvenn)
+#library(tidyverse)
+#library(ggtext)
+#devtools::install_github(&quot;guokai8/VennDetail&quot;)
+#library(VennDetail)
+
+#list(#&quot;菲律宾&quot;=unique(data[data$cplace==u_data_island[1],]$lfamily),
+#&quot;柬埔寨&quot;=unique(data[data$cplace==u_data_island[2],]$lfamily),
+#&quot;老挝&quot;=unique(data[data$cplace==u_data_island[3],]$lfamily),
+#&quot;马来亚&quot;=unique(data[data$cplace==u_data_island[4],]$lfamily),
+#&quot;马鲁古群岛&quot;=unique(data[data$cplace==u_data_island[5],]$lfamily),
+#&quot;缅甸&quot;=unique(data[data$cplace==u_data_island[6],]$lfamily),
+#&quot;婆罗洲&quot;=unique(data[data$cplace==u_data_island[7],]$lfamily),
+#&quot;苏拉威西岛&quot;=unique(data[data$cplace==u_data_island[8],]$lfamily),
+#&quot;苏门答腊&quot;=unique(data[data$cplace==u_data_island[9],]$lfamily),
+#&quot;泰国&quot;=unique(data[data$cplace==u_data_island[10],]$lfamily),
+#&quot;小巽他群岛&quot;=unique(data[data$cplace==u_data_island[11],]$lfamily),
+#&quot;新加坡&quot;=unique(data[data$cplace==u_data_island[12],]$lfamily),
+#&quot;越南&quot;=unique(data[data$cplace==u_data_island[13],]$lfamily),
+#&quot;爪哇岛&quot;=unique(data[data$cplace==u_data_island[14],]$lfamily)) %&gt;%
+##plot(type = &quot;vennpie&quot;)
+#plot(type = &quot;upset&quot;)
+
+MX_Upset &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=length(u_data_f)))
+colnames(MX_Upset) &lt;- u_data_island
+rownames(MX_Upset) &lt;- u_data_f
+i=1
+j=1
+for (i in 1:length(colnames(MX_Upset))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lfamily
+u_sub_data &lt;- unique(sub_data)
+for (j in 1:length(rownames(MX_Upset))) &#123;
+    MUR &lt;- rownames(MX_Upset)[j]
+    c &lt;- paste(grep(MUR,u_sub_data),&quot;NA&quot;)
+    if(c==&quot; NA&quot;)&#123;
+    MX_Upset[j,i] &lt;- 0
+    &#125;else&#123;
+    MX_Upset[j,i] &lt;- 1
+    &#125;
+&#125;
+&#125;
+
+library(UpSetR)
+upset(MX_Upset, nset = 14, nintersects = 1000)
+upset(MX_Upset, nset = 14, nintersects = 1000, 
+    order.by = c(&#39;freq&#39;, &#39;degree&#39;), decreasing = c(TRUE, TRUE)
+    #empty.intersections = &quot;on&quot;
+    )#保存尺寸15*20
+upset(MX_Upset, nset = 14, nintersects = 1000, 
+    order.by = c(&#39;freq&#39;, &#39;degree&#39;), decreasing = c(TRUE, TRUE),
+    sets.bar.color = colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14)
+    )
+
+
+#属----
+MX_G &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX_G) &lt;- u_data_island
+rownames(MX_G) &lt;- u_data_island
+
+i=1
+j=1
+for (i in 1:length(rownames(MX_G))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data_G &lt;- data[data$cplace==Rg,]$lgenus
+u_sub_data_G &lt;- unique(sub_data_G)
+sub_data_G_other &lt;- data[data$cplace!=Rg,]$lgenus
+u_sub_data_G_o &lt;- unique(sub_data_G_other)
+Uni_endemic_G &lt;- setdiff(u_sub_data_G, u_sub_data_G_o)#补集，确定地区特有种
+Uni_endemic_G &lt;- as.numeric(length(Uni_endemic_G))
+for (j in 1:length(colnames(MX_G))) &#123;
+    Rg1 &lt;- u_data_island[j]
+    sub_data_G1 &lt;- data[data$cplace==Rg1,]$lgenus
+    u_sub_data_G1 &lt;- unique(sub_data_G1)
+    Uni_G &lt;- intersect(u_sub_data_G, u_sub_data_G1)#交集
+    Uni_G &lt;- as.numeric(length(Uni_G))
+    if(i==j)&#123;
+    MX_G[i,j] &lt;- Uni_endemic_G
+    &#125;else&#123;
+    MX_G[i,j] &lt;- Uni_G
+    &#125;
+&#125;
+&#125;
+#write.csv(MX_S, file = &quot;species_MX.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+###转化为百分比矩阵----
+i=1
+j=1
+MX_P_G &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX_P_G) &lt;- u_data_island
+rownames(MX_P_G) &lt;- u_data_island
+for (i in 1:length(rownames(MX_P_G))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lgenus
+u_sub_data &lt;- unique(sub_data)
+sum &lt;- length(u_sub_data)
+for (j in 1:length(colnames(MX_P_G))) &#123;
+    num &lt;- as.numeric((MX_G[i,j]/sum))
+    MX_P_G[i,j] &lt;- num*100
+&#125;
+&#125;
+#write.csv(MX_P_G, file = &quot;genus_MX_P.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+##和弦矩阵----
+chordNetwork(Data = MX_P_G, width = 500, height = 500, 
+            colourScale = colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14), 
+            labels = colnames(MX),
+            fontSize = 15,
+            labelDistance = 75)#和弦图
+##Upset图----
+MX_Upset_G &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=length(u_data_g)))
+colnames(MX_Upset_G) &lt;- u_data_island
+rownames(MX_Upset_G) &lt;- u_data_g
+i=1
+j=1
+for (i in 1:length(colnames(MX_Upset_G))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lgenus
+u_sub_data &lt;- unique(sub_data)
+for (j in 1:length(rownames(MX_Upset_G))) &#123;
+    MUR &lt;- rownames(MX_Upset_G)[j]
+    c &lt;- paste(grep(MUR,u_sub_data),&quot;NA&quot;)
+    c_L &lt;- length(c)
+    if(c_L==1)&#123;
+    c &lt;- c
+    if(c==&quot; NA&quot;)&#123;
+    MX_Upset_G[j,i] &lt;- 0
+    &#125;else&#123;
+    MX_Upset_G[j,i] &lt;- 1
+    &#125;
+    &#125; else &#123;
+    #matched_strings &lt;- grep(MUR,u_sub_data)
+    #index &lt;- which.max(matched_strings == MUR)
+    #matched_strings[index]#严格匹配
+    MX_Upset_G[j,i] &lt;- 1
+    &#125;
+&#125;
+&#125;
+
+
+
+upset(MX_Upset_G, nset = 14, nintersects = 1000, 
+    order.by = c(&#39;freq&#39;, &#39;degree&#39;), decreasing = c(TRUE, TRUE))
+
+
+#种----
+MX_S &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX_S) &lt;- u_data_island
+rownames(MX_S) &lt;- u_data_island
+
+i=1
+j=1
+for (i in 1:length(rownames(MX_S))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data_S &lt;- data[data$cplace==Rg,]$name
+#u_sub_data_S &lt;- unique(sub_data_S)
+sub_data_S_other &lt;- data[data$cplace!=Rg,]$name
+u_sub_data_S_o &lt;- unique(sub_data_S_other)
+Uni_endemic_S &lt;- setdiff(sub_data_S, u_sub_data_S_o)#补集，确定地区特有种
+Uni_endemic_S &lt;- as.numeric(length(Uni_endemic_S))
+for (j in 1:length(colnames(MX_S))) &#123;
+    Rg1 &lt;- u_data_island[j]
+    sub_data_S1 &lt;- data[data$cplace==Rg1,]$name
+    #u_sub_data_S1 &lt;- unique(sub_data_S1)
+    Uni_S &lt;- intersect(sub_data_S, sub_data_S1)#交集
+    Uni_S &lt;- as.numeric(length(Uni_S))
+    if(i==j)&#123;
+    MX_S[i,j] &lt;- Uni_endemic_S
+    &#125;else&#123;
+    MX_S[i,j] &lt;- Uni_S
+    &#125;
+&#125;
+&#125;
+#write.csv(MX_S, file = &quot;species_MX.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+###转化为百分比矩阵----
+i=1
+j=1
+MX_S_G &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=14))
+colnames(MX_S_G) &lt;- u_data_island
+rownames(MX_S_G) &lt;- u_data_island
+for (i in 1:length(rownames(MX_S_G))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$name
+u_sub_data &lt;- unique(sub_data)
+sum &lt;- length(u_sub_data)
+for (j in 1:length(colnames(MX_S_G))) &#123;
+    num &lt;- as.numeric((MX_S[i,j]/sum))
+    MX_S_G[i,j] &lt;- num*100
+&#125;
+&#125;
+#write.csv(MX_S_G, file = &quot;species_MX_P.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+##和弦矩阵----
+chordNetwork(Data = MX_S_G, width = 500, height = 500, 
+            colourScale = colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14), 
+            labels = colnames(MX),
+            fontSize = 15,
+            labelDistance = 75)#和弦图
+##Upset图----
+MX_Upset_S &lt;- as.data.frame(matrix(numeric(0),ncol=14, nrow=length(u_data_s)))
+colnames(MX_Upset_S) &lt;- u_data_island
+rownames(MX_Upset_S) &lt;- u_data_s
+i=1
+j=1
+for (i in 1:length(colnames(MX_Upset_S))) &#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$name
+u_sub_data &lt;- unique(sub_data)
+for (j in 1:length(rownames(MX_Upset_S))) &#123;
+    MUR &lt;- rownames(MX_Upset_S)[j]
+    c &lt;- paste(grep(MUR,u_sub_data),&quot;NA&quot;)
+    c_L &lt;- length(c)
+    if(c_L==1)&#123;
+    c &lt;- c
+    if(c==&quot; NA&quot;)&#123;
+        MX_Upset_S[j,i] &lt;- 0
+    &#125;else&#123;
+        MX_Upset_S[j,i] &lt;- 1
+    &#125;
+    &#125; else &#123;
+    #matched_strings &lt;- grep(MUR,u_sub_data)
+    #index &lt;- which.max(matched_strings == MUR)
+    #matched_strings[index]#严格匹配
+    MX_Upset_S[j,i] &lt;- 1
+    &#125;
+&#125;
+&#125;
+
+
+
+upset(MX_Upset_S, nset = 14, nintersects = 5000, 
+    order.by = c(&#39;freq&#39;, &#39;degree&#39;), decreasing = c(TRUE, TRUE))
+
+
+
+#时间推算----
+##系统树----
+#u_data_f_num &lt;- length(u_data_f)
+u_data_g_num &lt;- length(u_data_g)
+library(ape)
+#tree &lt;- read.tree(&quot;tree.txt&quot;)
+tree &lt;- read.tree(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\nc2023_wangzhiheng\\Molecular_tree_140_150Ma_constraint.tre&quot;)
+plot(tree)
+#nodelabels()
+#tiplabels()
+#is.ultrametric(tree)
+T_name &lt;- tree$tip.label
+change_name &lt;- as.data.frame(matrix(numeric(0),ncol=2, nrow=u_data_g_num))
+#change_name[,1] &lt;- u_data_f
+change_name[,1] &lt;- u_data_g
+colnames(change_name) &lt;- c(&quot;name&quot;,&quot;judge&quot;)
+change_name$T_name &lt;- NA
+i=1
+for (i in 1:length(u_data_g)) &#123;
+f1 &lt;- u_data_g[i]
+judge &lt;- paste(grep(f1,T_name),&quot;NA&quot;)
+J_L &lt;- length(judge)
+if(J_L==1)&#123;
+    judge &lt;- judge
+    if(judge==&quot; NA&quot;)&#123;
+    change_name[i,2] &lt;- &quot;F&quot;
+    &#125;else&#123;
+    change_name[i,2] &lt;- &quot;T&quot;
+    &#125;
+    &#125;else&#123;
+    #print(f1)
+    #print(grep(f1,T_name,value = T))
+    change_name[i,2] &lt;- &quot;T&quot;
+&#125;
+
+&#125;
+length(change_name[change_name$judge==&quot;F&quot;,2])
+length(change_name[change_name$judge==&quot;T&quot;,2])
+
+
+
+i=1
+j=1
+for (i in 1:length(u_data_g)) &#123;
+f1 &lt;- u_data_g[i]
+for (j in 1:length(T_name)) &#123;
+    f2 &lt;- T_name[j]
+    f11 &lt;- paste0(f1,&quot;$&quot;)#写入带入grep函数中的正则表达式
+    judge1 &lt;- paste0(grep(f11,f2,value = T, fixed = F),&quot;NA&quot;)#一般重复的字节都在属的前半部分，因此可以检查后半部分
+    if(judge1==&quot;NA&quot;)&#123;
+    j &lt;- j+1
+    &#125;else&#123;
+    change_name[i,3] &lt;- f2
+&#125;
+&#125;
+&#125;
+
+#检查是否真的是相同属，有些仅有部分字节相同
+sub_change_name &lt;- change_name[change_name$judge==&quot;T&quot;,]
+sub_change_name &lt;- na.omit(sub_change_name)
+i=1
+for (i in 1:length(sub_change_name$name)) &#123;
+a &lt;- sub_change_name[i,1]
+b &lt;- sub_change_name[i,3]
+if(a==b)&#123;
+    sub_change_name[i,2] &lt;- &quot;==&quot;
+&#125;else&#123;
+    sub_change_name[i,2] &lt;- &quot;!=&quot;
+&#125;
+&#125;
+#提取子树
+tip &lt;- sub_change_name$T_name[sub_change_name$judge==&quot;==&quot;]#3231个属
+#添加最基部外群
+#tip[3232] &lt;- &quot;Ginkgo&quot;
+tip_drop &lt;- setdiff(T_name, tip)
+tree_sub &lt;- drop.tip(tree, tip_drop)
+plot(tree_sub)
+#write.nexus(tree_sub,file = &quot;tree_sub_genus_1.nex&quot;)
+
+#另一种方法
+tree_sub &lt;- keep.tip(tree, tip)
+tree_sub$tip.label
+
+##系统树绘图----
+library(ggplot2)
+library(RColorBrewer)
+color &lt;- colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14)
+x &lt;- c(1:14)
+y &lt;- c(1:14)
+plot(x,y,pch=16,col=color)
+library(tidyverse)
+#BiocManager::install(&quot;ggtree&quot;)
+library(ggtree)
+library(treeio)
+tree &lt;- read.nexus(&quot;tree_sub_genus_1.nex&quot;)
+p &lt;- ggtree(tree, layout = &#39;circular&#39;, branch.length=&#39;none&#39;)
+T_name_sub &lt;- tree$tip.label
+u_data_island &lt;- unique(data$cplace)
+#change_name &lt;- as.data.frame(matrix(numeric(0),ncol=2, nrow=u_data_f_num))
+sub_tree_isl &lt;- as.data.frame(matrix(numeric(0),ncol=16, nrow=length(T_name_sub)))
+sub_tree_isl[,1] &lt;- T_name_sub
+colnames(sub_tree_isl) &lt;- c(&quot;name&quot;,&quot;judge&quot;,
+                            &quot;菲律宾&quot;,
+                            &quot;柬埔寨&quot;,
+                            &quot;老挝&quot;,
+                            &quot;马来亚&quot;,
+                            &quot;马鲁古群岛&quot;,
+                            &quot;缅甸&quot;,
+                            &quot;婆罗洲&quot;,
+                            &quot;苏拉威西岛&quot;,
+                            &quot;苏门答腊&quot;,
+                            &quot;泰国&quot;,
+                            &quot;小巽他群岛&quot;,
+                            &quot;新加坡&quot;,
+                            &quot;越南&quot;,
+                            &quot;爪哇岛&quot; )
+i=1
+j=1
+for (i in 1:length(u_data_g)) &#123;
+a &lt;- u_data_g[i]
+for (j in 1:length(T_name_sub)) &#123;
+    b &lt;- sub_tree_isl$name[j]
+    c &lt;- paste(grep(a,b),&quot;NA&quot;)
+    if(c==&quot; NA&quot;)&#123;
+    j &lt;- j+1
+    &#125;else&#123;
+    sub_tree_isl[j,2] &lt;- a
+    &#125;
+    
+&#125;
+&#125;
+
+#提取个国家存在的属在系统树中
+i=1
+j=1
+for(i in 1:length(u_data_island))&#123;
+Rg &lt;- u_data_island[i]
+sub_data &lt;- data[data$cplace==Rg,]$lgenus
+u_sub_data &lt;- unique(sub_data)
+for (j in 1:length(sub_tree_isl$judge)) &#123;
+    f1 &lt;- sub_tree_isl$judge[j]
+    f11 &lt;- paste0(f1,&quot;$&quot;)
+    judge &lt;- paste0(grep(f11,u_sub_data,value = T, fixed = F),&quot;NA&quot;)
+    if(judge==&quot;NA&quot;)&#123;
+    sub_tree_isl[j,i+2] &lt;- &quot;F&quot;
+    &#125;else&#123;
+    sub_tree_isl[j,i+2] &lt;- &quot;T&quot;
+    &#125;
+&#125;
+&#125;
+
+#提取地方特有属
+i=1
+for (i in 1:length(sub_tree_isl$name)) &#123;
+a &lt;- sub_tree_isl[i,3:16]
+b &lt;- as.character(a[,a==&quot;T&quot;])
+c &lt;- length(b)
+if(c==1)&#123;
+    sub_tree_isl[i,sub_tree_isl[i,]==&quot;T&quot;] &lt;- &quot;E&quot; 
+&#125;else&#123;
+    i &lt;- i+1
+&#125;
+&#125;
+#write.csv(sub_tree_isl, file = &quot;tree_isl_1.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+#length(sub_tree_isl[sub_tree_isl$柬埔寨==&quot;E&quot;,]$柬埔寨)
+
+ggtree(tree, layout = &#39;circular&#39;) + 
+geom_tiplab(size=1.5,offset = 0.5)
+sub_tree_isl &lt;- read_excel(&quot;tree_isl_1.xlsx&quot;)
+##各国家----
+###菲律宾----
+p &lt;- ggtree(tree, layout = &#39;circular&#39;)
+grp &lt;-  list(FLB = sub_tree_isl$name[sub_tree_isl$菲律宾==&quot;T&quot;],
+            FLB_E = sub_tree_isl$name[sub_tree_isl$菲律宾==&quot;E&quot;],
+            other = sub_tree_isl$name[sub_tree_isl$菲律宾==&quot;F&quot;])
+groupOTU(p, grp, &#39;country&#39;) + aes(color=country) +
+theme(legend.position=&quot;right&quot;) + scale_color_manual(values=c(&quot;#7FC97F&quot;,&quot;red&quot;,&quot;black&quot;))
+###循环----
+
+i=1
+for (i in 1:length(u_data_island)) &#123;
+y &lt;- color[i]
+grp &lt;-  list(target_country = sub_tree_isl[sub_tree_isl[,i+2]==&quot;T&quot;,1],
+            target_country_E = sub_tree_isl[sub_tree_isl[,i+2]==&quot;E&quot;,1],
+            Other = sub_tree_isl[sub_tree_isl[,i+2]==&quot;F&quot;,1])
+px &lt;- groupOTU(p, grp, &#39;country&#39;) + aes(color=country) +
+    theme(legend.position=&quot;right&quot;) + scale_color_manual(values=c(&quot;black&quot;,&quot;red&quot;,y))
+print(px)
+&#125;
+
+
+
+##计算各地区的时间树情况----
+#install.packages(&quot;devtools&quot;)
+#devtools::install_github(&quot;rsetienne/DAISIE&quot;)
+#install.packages(&quot;DAISIEprep&quot;, dependencies = T)
+library(DAISIE)
+library(DAISIEprep)
+library(ape)
+library(phylobase)
+library(ggtree)
+library(ggimage)
+library(castor)
+endemicity &lt;- as.data.frame(sub_tree_isl$菲律宾)
+endemicity[endemicity$`sub_tree_isl$菲律宾`==&quot;T&quot;,] &lt;- &quot;nonendemic&quot;
+endemicity[endemicity$`sub_tree_isl$菲律宾`==&quot;F&quot;,] &lt;- &quot;not_present&quot;
+endemicity[endemicity$`sub_tree_isl$菲律宾`==&quot;E&quot;,] &lt;- &quot;endemic&quot;
+colnames(endemicity) &lt;- c(&quot;endemicity_status&quot;)
+#i=1
+#for (i in 1:length(tree$tip.label)) &#123;
+#tree$tip.label[i] &lt;- paste0(tree$tip.label[i],&quot;_&quot;,i)  
+#&#125;
+
+SEP_tree &lt;- phylobase::phylo4(tree)
+SEP_tree_FLB &lt;- phylobase::phylo4d(SEP_tree, endemicity)
+plot_phylod(phylod = SEP_tree_FLB)
+#island_tbl_FLB &lt;- island_tbl()
+#island_tbl_FLB
+#SEP_tree_FLB &lt;- add_asr_node_states(phylod = SEP_tree_FLB, asr_method = &quot;parsimony&quot;)#无外群不能继续分析
+STFD &lt;- print(SEP_tree_FLB)
+STFD_tip &lt;- na.omit(STFD)
+STFD_Time &lt;- STFD_tip$edge.length[STFD_tip$endemicity_status!=&quot;not_present&quot;]
+STFD_mean &lt;- mean(STFD_Time)
+STFD_median &lt;- median(STFD_Time)
+#STFD_range &lt;- range(STFD_Time)
+STFD_sd &lt;- sd(STFD_Time)
+STFD_CV &lt;- (STFD_sd/STFD_mean)*100
+###循环----
+i=1
+length(colnames(sub_tree_isl))-2#不要前两列
+SEP_time &lt;- as.data.frame(matrix(numeric(0),ncol=4))
+colnames(SEP_time) &lt;- c(&quot;island&quot;,&quot;mean&quot;,&quot;median&quot;,&quot;CV&quot;)
+SEP_time_box &lt;- as.data.frame(matrix(numeric(0),ncol=2))
+colnames(SEP_time_box) &lt;- c(&quot;island&quot;,&quot;time&quot;)
+for (i in 1:14) &#123;
+endemicity &lt;- sub_tree_isl[,i+2]
+endemicity[endemicity==&quot;T&quot;,] &lt;- &quot;nonendemic&quot;
+endemicity[endemicity==&quot;F&quot;,] &lt;- &quot;not_present&quot;
+endemicity[endemicity==&quot;E&quot;,] &lt;- &quot;endemic&quot;
+colnames(endemicity) &lt;- c(&quot;endemicity_status&quot;)
+SEP_tree_isl &lt;- phylobase::phylo4d(SEP_tree, endemicity)
+STI_data &lt;- print(SEP_tree_isl)
+STID_tip &lt;- na.omit(STI_data)
+STID_Time &lt;- STID_tip$edge.length[STID_tip$endemicity_status!=&quot;not_present&quot;]
+time_df &lt;- as.data.frame(matrix(numeric(0),ncol=2,nrow = length(STID_Time)))
+colnames(time_df) &lt;- c(&quot;island&quot;,&quot;time&quot;)
+time_df$time &lt;- STID_Time
+time_df$island &lt;- colnames(sub_tree_isl[,i+2])
+SEP_time_box &lt;- do.call(rbind,list(SEP_time_box,time_df))
+STID_mean &lt;- mean(STID_Time)
+STID_median &lt;- median(STID_Time)
+#STFD_range &lt;- range(STFD_Time)
+STID_sd &lt;- sd(STID_Time)
+STID_CV &lt;- (STID_sd/STID_mean)*100
+test_df &lt;- as.data.frame(matrix(numeric(0),ncol=4,nrow = 1))
+colnames(test_df) &lt;- c(&quot;island&quot;,&quot;mean&quot;,&quot;median&quot;,&quot;CV&quot;)
+test_df$island&lt;- colnames(sub_tree_isl)[i+2]
+test_df$mean &lt;- STID_mean
+test_df$median &lt;- STID_median
+test_df$CV &lt;- STID_CV
+SEP_time &lt;- do.call(rbind,list(SEP_time,test_df))
+&#125; 
+
+#write.csv(SEP_time, file = &quot;SEP_time.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+#write.csv(SEP_time_box, file = &quot;SEP_time_box.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+SEP_time &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\时间\\SEP_time.xlsx&quot;)
+SEP_T_box &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\时间\\SEP_time_box.xlsx&quot;)
+color &lt;- colorRampPalette(brewer.pal(8, &quot;Accent&quot;))(14)
+ggplot(SEP_T_box, aes(x = island, y = time, fill = island)) +
+# 小提琴图函数
+geom_violin(trim = FALSE,alpha = 0.25)+
+# 箱线图函???
+geom_boxplot(outlier.colour=&quot;black&quot;,outlier.alpha = 0.75, width = 0.17) +
+scale_color_manual(values=color)+
+
+scale_fill_manual(values = color)+ 
+# 颜色标尺
+theme(panel.grid.major =element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(),axis.line = element_line(colour = &quot;black&quot;))
+
+ggplot(data = SEP_time, mapping = aes(x = island, y = CV)) + 
+geom_line(group=1,size=1,alpha=0.35) + 
+geom_point(color=color,size=3) +
+theme(panel.grid.major =element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(),axis.line = element_line(colour = &quot;black&quot;))
+
+###计算本地特有属----
+i=1
+length(colnames(sub_tree_isl))-2#不要前两列
+SEP_time_E &lt;- as.data.frame(matrix(numeric(0),ncol=4))
+colnames(SEP_time_E) &lt;- c(&quot;island&quot;,&quot;mean&quot;,&quot;median&quot;,&quot;CV&quot;)
+for (i in 1:14) &#123;
+endemicity &lt;- sub_tree_isl[,i+2]
+endemicity[endemicity==&quot;T&quot;,] &lt;- &quot;nonendemic&quot;
+endemicity[endemicity==&quot;F&quot;,] &lt;- &quot;not_present&quot;
+endemicity[endemicity==&quot;E&quot;,] &lt;- &quot;endemic&quot;
+colnames(endemicity) &lt;- c(&quot;endemicity_status&quot;)
+SEP_tree_isl &lt;- phylobase::phylo4d(SEP_tree, endemicity)
+STI_data &lt;- print(SEP_tree_isl)
+STID_tip &lt;- na.omit(STI_data)
+STID_Time &lt;- STID_tip$edge.length[STID_tip$endemicity_status==&quot;endemic&quot;]
+STID_mean &lt;- mean(STID_Time)
+STID_median &lt;- median(STID_Time)
+#STFD_range &lt;- range(STFD_Time)
+STID_sd &lt;- sd(STID_Time)
+STID_CV &lt;- (STID_sd/STID_mean)*100
+test_df &lt;- as.data.frame(matrix(numeric(0),ncol=4,nrow = 1))
+colnames(test_df) &lt;- c(&quot;island&quot;,&quot;mean&quot;,&quot;median&quot;,&quot;CV&quot;)
+test_df$island&lt;- colnames(sub_tree_isl)[i+2]
+test_df$mean &lt;- STID_mean
+test_df$median &lt;- STID_median
+test_df$CV &lt;- STID_CV
+SEP_time_E &lt;- do.call(rbind,list(SEP_time_E,test_df))
+&#125; 
+#write.csv(SEP_time_E, file = &quot;SEP_time_E.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+SEP_time_E &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\时间\\SEP_time_E.xlsx&quot;)
+#将数据匹配到地图上
+new_SE2 &lt;- new_SE
+
+i=1
+j=1
+for (i in 1:length(new_SE2$name)) &#123;
+a &lt;- new_SE2$name[i]
+for (j in 1:length(SEP_time_E$island)) &#123;
+    b &lt;- SEP_time_E$island[j]
+    c &lt;- paste0(grep(a,b),&quot;NA&quot;)
+    if(c==&quot;NA&quot;)&#123;
+    j &lt;- j+1
+    &#125;else&#123;
+    new_SE2[i,3] &lt;- SEP_time_E[j,2]
+    new_SE2[i,4] &lt;- SEP_time_E[j,3]
+    new_SE2[i,5] &lt;- SEP_time_E[j,4]
+    &#125;
+&#125;
+&#125;
+
+new_SE2$CV[6] &lt;- 0
+new_SE2$CV &lt;- as.numeric(new_SE2$CV)
+tm_shape(new_SE2) +
+tm_polygons(&quot;mean&quot;,
+            #breaks = c(220,230,240,250,260,270,280,290,300),
+            palette=&quot;Oranges&quot;,)+
+#tm_text(&#39;name&#39;,size=&quot;AREA&quot;, scale=1.5)+
+tm_style(&quot;grey&quot;)#根据数据绘制热图
+
+tm_shape(new_SE2) +
+tm_polygons(&quot;CV&quot;,
+            breaks = c(10,20,30,40,50,60,70,80),
+            palette=&quot;Greens&quot;,)+
+#tm_text(&#39;name&#39;,size=&quot;AREA&quot;, scale=1.5)+
+tm_style(&quot;grey&quot;)#根据数据绘制热图
+#相关性分析----
+library(sf)
+plot(new_SE2$geometry, axes = TRUE)
+plot(st_centroid(new_SE2$geometry), add = TRUE, pch = 20, col = &#39;red&#39;)
+island_Dis &lt;- as.data.frame(matrix(numeric(0),ncol=3,nrow=14))
+colnames(island_Dis) &lt;- c(&quot;island&quot;,&quot;X&quot;,&quot;Y&quot;)
+library(sfheaders)
+a &lt;- st_centroid(new_SE2$geometry)
+b &lt;- sfc_to_df(a)
+island_Dis$island &lt;- new_SE2$name
+island_Dis$X &lt;- b$x
+island_Dis$Y &lt;- b$y
+library (geosphere)
+point_mat &lt;- matrix(c(island_Dis$X, island_Dis$Y), ncol =2 )
+geospatial_dist &lt;- distm(point_mat, fun = distGeo) 
+island_D &lt;- as.data.frame(geospatial_dist)
+colnames(island_D) &lt;- island_Dis$island
+rownames(island_D) &lt;- island_Dis$island
+#write.csv(island_D, file = &quot;island_Distance.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+SEP_hx_df_f &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\和弦矩阵\\family_MX.xlsx&quot;)
+SEP_hx_df_g &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\和弦矩阵\\genus_MX.xlsx&quot;)
+SEP_hx_df_s &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\和弦矩阵\\species_MX.xlsx&quot;)
+SEP_dis &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\相关性\\island_Distance.xlsx&quot;)
+SEP_hx_df_f &lt;- SEP_hx_df_f[,-1]
+rownames(SEP_hx_df_f) &lt;- colnames(SEP_hx_df_f)
+SEP_hx_df_g &lt;- SEP_hx_df_g[,-1]
+rownames(SEP_hx_df_g) &lt;- colnames(SEP_hx_df_g)
+SEP_hx_df_s &lt;- SEP_hx_df_s[,-1]
+rownames(SEP_hx_df_s) &lt;- colnames(SEP_hx_df_s)
+SEP_dis &lt;- SEP_dis[,-1]
+rownames(SEP_dis) &lt;- colnames(SEP_dis)
+#cumsum(1:13)#累加
+SEP_relation &lt;- as.data.frame(matrix(numeric(0),ncol=5,nrow = 91))
+colnames(SEP_relation) &lt;- c(&quot;name&quot;,&quot;family&quot;,&quot;genus&quot;,&quot;species&quot;,&quot;distance&quot;)
+##提取科----
+df &lt;- as.data.frame(matrix(numeric(0),ncol=2))
+colnames(df) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+i=1
+j=1
+#length(rownames(SEP_hx_df_f))-1
+for (i in 1:13) &#123;
+a &lt;- 14-i
+df_T &lt;- as.data.frame(matrix(numeric(0),ncol=2,nrow = a))
+colnames(df_T) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+for (j in 1:a) &#123;
+    df_T[j,1] &lt;- paste0(rownames(SEP_hx_df_f)[i],colnames(SEP_hx_df_f)[i+j])
+    df_T[j,2] &lt;- SEP_hx_df_f[i,i+j]
+&#125;
+df &lt;- do.call(rbind,list(df,df_T))
+&#125;
+##提取属----
+df_G &lt;- as.data.frame(matrix(numeric(0),ncol=2))
+colnames(df_G) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+i=1
+j=1
+#length(rownames(SEP_hx_df_f))-1
+for (i in 1:13) &#123;
+a &lt;- 14-i
+df_T &lt;- as.data.frame(matrix(numeric(0),ncol=2,nrow = a))
+colnames(df_T) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+for (j in 1:a) &#123;
+    df_T[j,1] &lt;- paste0(rownames(SEP_hx_df_g)[i],colnames(SEP_hx_df_g)[i+j])
+    df_T[j,2] &lt;- SEP_hx_df_g[i,i+j]
+&#125;
+df_G &lt;- do.call(rbind,list(df_G,df_T))
+&#125;
+##提取种----
+df_S &lt;- as.data.frame(matrix(numeric(0),ncol=2))
+colnames(df_S) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+i=1
+j=1
+#length(rownames(SEP_hx_df_f))-1
+for (i in 1:13) &#123;
+a &lt;- 14-i
+df_T &lt;- as.data.frame(matrix(numeric(0),ncol=2,nrow = a))
+colnames(df_T) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+for (j in 1:a) &#123;
+    df_T[j,1] &lt;- paste0(rownames(SEP_hx_df_s)[i],colnames(SEP_hx_df_s)[i+j])
+    df_T[j,2] &lt;- SEP_hx_df_s[i,i+j]
+&#125;
+df_S &lt;- do.call(rbind,list(df_S,df_T))
+&#125;
+##提取距离----
+df_D &lt;- as.data.frame(matrix(numeric(0),ncol=2))
+colnames(df_D) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+i=1
+j=1
+#length(rownames(SEP_hx_df_f))-1
+for (i in 1:14) &#123;
+df_T &lt;- as.data.frame(matrix(numeric(0),ncol=2,nrow = 14))
+colnames(df_T) &lt;- c(&quot;name&quot;,&quot;family&quot;)
+for (j in 1:14) &#123;
+    df_T[j,1] &lt;- paste0(rownames(SEP_dis)[i],colnames(SEP_dis)[j])
+    df_T[j,2] &lt;- SEP_dis[i,j]
+&#125;
+df_D &lt;- do.call(rbind,list(df_D,df_T))
+&#125;
+##数据对应----
+#df_S$name==df_G
+#df_G$name==df$name
+SEP_relation$name &lt;- df_S$name
+SEP_relation$family &lt;- df$family
+SEP_relation$genus &lt;- df_G$family
+SEP_relation$species &lt;- df_S$family
+i=1
+j=1
+for (i in 1:length(SEP_relation$name)) &#123;
+a &lt;- SEP_relation$name[i]
+for (j in 1:length(df_D$name)) &#123;
+    b &lt;- df_D$name[j]
+    if(a==b)&#123;
+    SEP_relation[i,5] &lt;- df_D[j,2]
+    &#125; else &#123;
+    j &lt;- j+1
+    &#125;
+&#125;
+
+&#125;
+#write.csv(SEP_relation, file = &quot;SEP_relation.csv&quot;, fileEncoding = &quot;GB18030&quot;)
+SEP_relation &lt;- read_excel(&quot;C:\\Users\\yoxose\\Desktop\\SEP\\results\\相关性\\SEP_relation.xlsx&quot;)
+
+cor.test(SEP_relation$distance,SEP_relation$family)
+ggplot(SEP_relation, aes(x = distance, y = family)) + 
+geom_point() +
+stat_smooth(method = &quot;lm&quot;, col = &quot;orange&quot;)+
+theme_bw() + 
+theme(panel.grid.major = element_line(colour=NA),
+        panel.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        plot.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        panel.grid.minor = element_blank())
+
+cor.test(SEP_relation$distance,SEP_relation$genus)
+ggplot(SEP_relation, aes(x = distance, y = genus)) + 
+geom_point() +
+stat_smooth(method = &quot;lm&quot;, col = &quot;orange&quot;)+
+theme_bw() + 
+theme(panel.grid.major = element_line(colour=NA),
+        panel.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        plot.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        panel.grid.minor = element_blank())
+
+cor.test(SEP_relation$distance,SEP_relation$species)
+ggplot(SEP_relation, aes(x = distance, y = species)) + 
+geom_point() +
+stat_smooth(method = &quot;lm&quot;, col = &quot;orange&quot;)+
+theme_bw() + 
+theme(panel.grid.major = element_line(colour=NA),
+        panel.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        plot.background = element_rect(fill = &quot;transparent&quot;,colour = NA),
+        panel.grid.minor = element_blank())
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R/" rel="tag"># R</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/04/10/Geography-analysis/" rel="prev" title="Geography_analysis">
+      <i class="fa fa-chevron-left"></i> Geography_analysis
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-analysis-of-Southeast-Asia%E2%80%99s-plants"><span class="nav-number">1.</span> <span class="nav-text">The analysis of Southeast Asia’s plants</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">WANG Wei-Jia</p>
+  <div class="site-description" itemprop="description">Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WANG Wei-Jia</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
