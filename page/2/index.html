@@ -147,6 +147,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/11/Text-processing-by-shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WANG Wei-Jia">
+      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/11/Text-processing-by-shell/" class="post-title-link" itemprop="url">Text processing by shell</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-11 21:51:58" itemprop="dateCreated datePublished" datetime="2023-08-11T21:51:58+08:00">2023-08-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-10 23:09:25" itemprop="dateModified" datetime="2023-10-10T23:09:25+08:00">2023-10-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Copy-all-subdirectories-in-the-other-folder-and-delete-the-third-level-directory-and-all-files-after-it"><a href="#Copy-all-subdirectories-in-the-other-folder-and-delete-the-third-level-directory-and-all-files-after-it" class="headerlink" title="Copy all subdirectories in the other folder and delete the third level directory and all files after it"></a>Copy all subdirectories in the other folder and delete the third level directory and all files after it</h3><pre><code>cp -r /path/to/source/directory/* /path/to/destination/directory/
+find /path/to/directory -mindepth 3 -maxdepth 3 -type d -exec rm -r &#123;&#125; \;
+</code></pre>
+<h3 id="move-and-rename-files"><a href="#move-and-rename-files" class="headerlink" title="move and rename files"></a>move and rename files</h3><pre><code>#!/bin/bash
+#echo $(ls) &gt; list.txt
+list=$(cat list.txt)
+for i in $list;do
+cp -r 马先蒿图册照片/图鉴最终/$&#123;i&#125;/*.docx 整合/文本;
+var=&quot;./马先蒿图册照片/图鉴最终/$&#123;i&#125;/*.docx&quot;;
+j=$(basename $var);
+cd ./整合/文本;
+mv &quot;$&#123;j&#125;&quot; $&#123;i&#125;.docx;
+cd ..;
+cd ..;
+done
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/01/jupyter-notebook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1311,120 +1400,6 @@ grep -o &#39;circular genome&#39; GOR.txt |wc -l #to count the sum of circular g
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/11/Annotation-genome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WANG Wei-Jia">
-      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YOXOSE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/10/11/Annotation-genome/" class="post-title-link" itemprop="url">Genome-Annotation</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-10-11 23:13:33" itemprop="dateCreated datePublished" datetime="2022-10-11T23:13:33+08:00">2022-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-12 00:25:27" itemprop="dateModified" datetime="2022-10-12T00:25:27+08:00">2022-10-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/" itemprop="url" rel="index"><span itemprop="name">example</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/example/scientificity/" itemprop="url" rel="index"><span itemprop="name">scientificity</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>After we assemble the cycle of chloroplast genome, we can use PGA and Geneious to annotate them before uploading to GeneBank.</p>
-<h3 id="PGA-annotation"><a href="#PGA-annotation" class="headerlink" title="PGA annotation"></a>PGA annotation</h3><p><em>“PGA (Plastid Genome Annotator), a standalone command line tool, can perform rapid, accurate, and flexible batch annotation of newly generated target plastomes based on well-annotated reference plastomes.”</em> This is the introduction to PGA of its <a target="_blank" rel="noopener" href="https://github.com/quxiaojian/PGA">web</a>. </p>
-<pre><code>#install perl
-wget https://www.cpan.org/src/5.0/perl-5.36.0.tar.gz
-tar -xzf perl-5.36.0.tar.gz
-cd perl-5.36.0
-./Configure -des -Dprefix=$HOME/localperl
-make
-make test
-make install
-
-#intall BLAST 
-wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.13.0+-x64-linux.tar.gz
-tar -xzf ncbi-blast-2.13.0+-x64-linux.tar.gz
-
-#add PATH
-vim ~/.bashrc
-export PATH=/home/ZYH/Desktop/wwj/PGA/#####blast的文件夹名称/bin:$PATH
-source ~/.bashrc
-
-blastn -version
-
-#download PGA
-git clone https://github.com/quxiaojian/PGA.git
-vim ~/.bashrc
-export PATH=/home/xxx/PGA:$PATH
-source ~/.bashrc
-chmod a+rwx PGA.pl
-
-perl PGA.pl -r reference -t data/pedicularis_fasta
-</code></pre>
-<h3 id="Geneious-annotation"><a href="#Geneious-annotation" class="headerlink" title="Geneious annotation"></a>Geneious annotation</h3><p><a target="_blank" rel="noopener" href="https://www.geneious.com/prime/">Geneious</a> - Comprehensive suite of molecular biology and sequence analysis tools</p>
-<blockquote>
-<p>creating a reference folder, put reference sequence which has annotated in it.<br>your sequences -&gt; Annotate &amp; Predict -&gt; Annotate from database</p>
-</blockquote>
-<p>when you finish the annotation, you may find some parts of you sequences are opposite direction, you need adjust them by “Copy Reverse Complement” of right click menu. And because there two path results of one chloroplast genome, you may find the location of genes of your sequence are very different from reference. At this case, you also need adjust them, but editing the sequence must be careful.</p>
-<p><em><strong>If there are any mistakes, Plase contact me (<a href="mailto:&#119;&#97;&#x6e;&#x67;&#x77;&#x65;&#105;&#x6a;&#x69;&#97;&#x36;&#57;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#97;&#x6e;&#x67;&#x77;&#x65;&#105;&#x6a;&#x69;&#97;&#x36;&#57;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>). Thank you for your help to improve the quality of my article!</strong></em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1494,7 +1469,7 @@ perl PGA.pl -r reference -t data/pedicularis_fasta
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -147,6 +147,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/16/mac-ssh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="WANG Wei-Jia">
+      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YOXOSE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/16/mac-ssh/" class="post-title-link" itemprop="url">mac_ssh</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-08-16 16:10:15 / 修改时间：16:15:51" itemprop="dateCreated datePublished" datetime="2024-08-16T16:10:15+08:00">2024-08-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><pre><code>ssh -p 端口 host@ip
+</code></pre>
+<p>报错<br>    Unable to negotiate with XXxIP port XX端口: no matching host key type found. Their offer: ssh-rsa,ssh-dss<br>在根目录创建.ssh文件夹，进入后创建config文件<br>    mkdir .ssh<br>    cd .ssh<br>    touch config<br>    vim congig<br>编辑config<br>    Host *<br>    HostkeyAlgorithms +ssh-rsa<br>    PubkeyAcceptedKeyTypes +ssh-rsa</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/05/R-vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2762,95 +2832,6 @@ write.csv(data3, file = &quot;马先蒿检索校对(4).csv&quot;)
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/11/Text-processing-by-shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="WANG Wei-Jia">
-      <meta itemprop="description" content="Any questions please contact wangweijia69@163.com.  If Quoting the source from essay of this blog, please take the reference. The author of essay owns the copyright.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YOXOSE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/11/Text-processing-by-shell/" class="post-title-link" itemprop="url">Text processing by shell</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-08-11 21:51:58" itemprop="dateCreated datePublished" datetime="2023-08-11T21:51:58+08:00">2023-08-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-10 23:09:25" itemprop="dateModified" datetime="2023-10-10T23:09:25+08:00">2023-10-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Copy-all-subdirectories-in-the-other-folder-and-delete-the-third-level-directory-and-all-files-after-it"><a href="#Copy-all-subdirectories-in-the-other-folder-and-delete-the-third-level-directory-and-all-files-after-it" class="headerlink" title="Copy all subdirectories in the other folder and delete the third level directory and all files after it"></a>Copy all subdirectories in the other folder and delete the third level directory and all files after it</h3><pre><code>cp -r /path/to/source/directory/* /path/to/destination/directory/
-find /path/to/directory -mindepth 3 -maxdepth 3 -type d -exec rm -r &#123;&#125; \;
-</code></pre>
-<h3 id="move-and-rename-files"><a href="#move-and-rename-files" class="headerlink" title="move and rename files"></a>move and rename files</h3><pre><code>#!/bin/bash
-#echo $(ls) &gt; list.txt
-list=$(cat list.txt)
-for i in $list;do
-cp -r 马先蒿图册照片/图鉴最终/$&#123;i&#125;/*.docx 整合/文本;
-var=&quot;./马先蒿图册照片/图鉴最终/$&#123;i&#125;/*.docx&quot;;
-j=$(basename $var);
-cd ./整合/文本;
-mv &quot;$&#123;j&#125;&quot; $&#123;i&#125;.docx;
-cd ..;
-cd ..;
-done
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2920,7 +2901,7 @@ done
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
