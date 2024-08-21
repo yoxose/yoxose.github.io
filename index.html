@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-08-16 16:10:15 / 修改时间：16:15:51" itemprop="dateCreated datePublished" datetime="2024-08-16T16:10:15+08:00">2024-08-16</time>
+              <time title="创建时间：2024-08-16 16:10:15" itemprop="dateCreated datePublished" datetime="2024-08-16T16:10:15+08:00">2024-08-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-21 09:45:58" itemprop="dateModified" datetime="2024-08-21T09:45:58+08:00">2024-08-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -198,6 +204,8 @@
           <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><pre><code>ssh -p 端口 host@ip
 </code></pre>
 <p>报错<br>    Unable to negotiate with XXxIP port XX端口: no matching host key type found. Their offer: ssh-rsa,ssh-dss<br>在根目录创建.ssh文件夹，进入后创建config文件<br>    mkdir .ssh<br>    cd .ssh<br>    touch config<br>    vim congig<br>编辑config<br>    Host *<br>    HostkeyAlgorithms +ssh-rsa<br>    PubkeyAcceptedKeyTypes +ssh-rsa</p>
+<p>安装vscode，尝试SSH远程部署（一直失败，遂放弃）<br>调用终端，设定选中代码运行快捷键</p>
+<p>SFTP文件可以尝试使用termusi进行传输</p>
 
       
     </div>
